@@ -96,10 +96,10 @@ function build_model(data::DataOPHS, app)
     end
     
     #println(bwtsp.formulation)
-
     # Now we'll build the graphs.
     
-    # A small that could be used to represent the dummy trip 
+    # A small that could be used to represent the dummy trip
+    # This is not used currently
     function build_trip_1_2_graph()
         V′ = [1,2] # just the two vertices are necessary. This graph is only for the dummy trip
         v_source, v_sink = 1, 2
@@ -110,7 +110,14 @@ function build_model(data::DataOPHS, app)
         return G
     end
     
+
     # The non_symmetric case.
+    
+    #=
+    In the non_symmetric case, we build a graph for each trip.
+    As the trips have different lengths, we give it as input. 
+    =#
+
     function build_graph_non_symmetric(trip_index, trip_length)
         #= 
         # The Vertices of the graph are:
@@ -119,7 +126,7 @@ function build_model(data::DataOPHS, app)
                 # 0 is the v_source
                 # |C|+|H|+|H|+1 is the v_sink  
         =#
-
+        
         V′ = [i for i in 0:length(C)+length(H)+length(H)+1]   
         v_source, v_sink = 0, length(C)+length(H)+length(H)+1
         L, U = 1,1 # Each graph is used to generate a single trip
@@ -131,6 +138,7 @@ function build_model(data::DataOPHS, app)
         
         # Setting the resource bounds
         for i in V′
+            # All vertices have the same bounds, between 0 and the trip_length 
             set_resource_bounds!(G, i, dist_res_id, 0.0, trip_length)
         end
 
@@ -161,14 +169,14 @@ function build_model(data::DataOPHS, app)
                 set_arc_consumption!(G, arc_id, dist_res_id, d(data,(i,j)))
             end
 
-            #arcs between a hotel and a customer and between a customer and a hotel copy
+            # Arcs between a hotel and a customer and between a customer and a hotel copy
             if i in H && j in C
                 #from the hotel i to the customer j
                 arc_id = add_arc!(G, i, j)
                 add_arc_var_mapping!(G, arc_id, x[(i, j)])
                 set_arc_consumption!(G, arc_id, dist_res_id, d(data,(i,j)))
     
-                #from the the customer j and the copy of hotel i
+                # from the the customer j and the copy of hotel i, given by the index i+n
                 arc_id = add_arc!(G, j, i+n)
                 add_arc_var_mapping!(G, arc_id, x[(i, j)])
                 set_arc_consumption!(G, arc_id, dist_res_id, d(data,(i,j)))
@@ -176,12 +184,14 @@ function build_model(data::DataOPHS, app)
             
             #arcs between hotels and copies
             if i in H && j in H
-                #from a hotel i to the copy of a hotel j
+                # from a hotel i to the copy of a hotel j (given by j+n)
                 arc_id = add_arc!(G, i, j+n)
                 add_arc_var_mapping!(G, arc_id, x[ed(i, j)])
                 set_arc_consumption!(G, arc_id, dist_res_id, d(data,ed(i,j)))
 
-                #from a hotel j to the copy of a hotel i
+                # from a hotel j to the copy of a hotel i (given by i+n)
+                # Parece que estamos mapeando de novo por cima...
+
                 arc_id = add_arc!(G, j, i+n)
                 add_arc_var_mapping!(G, arc_id, x[ed(i, j)])
                 set_arc_consumption!(G, arc_id, dist_res_id, d(data,ed(i,j)))
@@ -190,7 +200,11 @@ function build_model(data::DataOPHS, app)
         return G
     end
     
-    # The symmetric case.
+    #= The symmetric case.
+        Now, we dont need the input trip_length as it is the same for all the trips
+        All the trips will occur in the smae graph.
+    =# 
+
     function build_graph_symmetric()
         #= 
         # The Vertices of the graph are:
@@ -206,14 +220,14 @@ function build_model(data::DataOPHS, app)
         
         # Resouces
         # Resource used to ensure the trip length constraint
-        dist_res_id = add_resource!(G, main=true) #Resource used to ensure the trip length constraint
-        for i in V′
-            l_i, u_i = 0.0, Td[1] 
-            set_resource_bounds!(G, i, dist_res_id, l_i, u_i)
+        dist_res_id = add_resource!(G, main=true)
+        
+        for i in V′ 
+            # All the vertices have the same bounds. Now, the upper limit is Td[1], which is the same of Td[2]...
+            set_resource_bounds!(G, i, dist_res_id, 0.0, Td[1])
         end
 
         # Mapping arcs and setting arcs` consumption
-        
         # Arcs from v_source to each hotel and from each hotel`s copy to the v_sink
         for i in H
             #from the v_source to the hotel i
@@ -266,7 +280,7 @@ function build_model(data::DataOPHS, app)
         return G
     end
 
-     # The symmetric case.
+     # The alternative graph for the symmetric case.
     function build_alternative_graph_symmetric()
         #= 
         # The Vertices of the graph are:
@@ -323,10 +337,7 @@ function build_model(data::DataOPHS, app)
         end
 
         return G
-    end
-    
-
-
+    end    
 
     # The symmetric case.
     function build_graph_CompleteRoute_symmetric()
@@ -377,8 +388,6 @@ function build_model(data::DataOPHS, app)
         end    
         return G
     end
-
-
 
     #=
     # The case considering stops with negative consumption.
@@ -487,8 +496,6 @@ function build_model(data::DataOPHS, app)
     end
     =#
 
-
-
     graphs =[]
     if data.symmetric
         if app["complete"]
@@ -500,8 +507,8 @@ function build_model(data::DataOPHS, app)
             #G = build_alternative_graph_symmetric()
         end
         add_graph!(bwtsp, G)
-        
         push!(graphs, G)
+    
     else
         for k=1:length(T)
             if k != length(T)+1
@@ -510,8 +517,7 @@ function build_model(data::DataOPHS, app)
             else
                 G = build_trip_1_2_graph()
             end
-            add_graph!(bwtsp, G)
-            
+            add_graph!(bwtsp, G)            
         end
     end
 
