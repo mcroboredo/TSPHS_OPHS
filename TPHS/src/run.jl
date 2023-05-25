@@ -44,7 +44,7 @@ function run_TSPHS(app::Dict{String,Any})
    flush(stdout)
 
    instance_name = split(basename(app["instance"]), ".")[1]
-   data = readTSPHSData(app)
+   data = readTSPHSData2(app)
    println("########################################################")
 
    if app["sol"] != nothing
@@ -62,6 +62,8 @@ function run_TSPHS(app::Dict{String,Any})
       (status, solution_found) = optimize!(optimizer)
       if solution_found
          sol = getsolution(data, optimizer, x, get_objective_value(optimizer), app)
+         print_routes(data, sol)
+         sol2 = getsolution2(data, optimizer, x,b, get_objective_value(optimizer), app)
       end
    end
    println(" ")

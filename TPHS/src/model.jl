@@ -136,7 +136,7 @@ function build_model(data::DataTSPHS, app::Dict{String,Any})
       s = H[1]
       for t in 1:length(C)
          maxFlow, flows, cut = SparseMaxFlowMinCut.find_maxflow_mincut(SparseMaxFlowMinCut.Graph(n, g), s, C[t])
-         if inteiro && (maxFlow/M) < (2 - 0.001) && !in(cut, added_cuts)
+         if (maxFlow/M) < (2 - 0.001) && !in(cut, added_cuts)
             
 
             set1, set2 = [], []
