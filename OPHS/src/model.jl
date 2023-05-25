@@ -1,4 +1,4 @@
-#= The DataOPHS struct has the following fields:
+#= Remeber that the DataOPHS struct has the following fields:
     - G′::InputGraph
     - Hotels::Array{Int64} # Hotel nodes. The first two hotels are respectively the start depot and the end depot 
     - Customers::Array{Int64} # Customer nodes
@@ -9,6 +9,8 @@
     - cuts::Int64 #Total number of cuts inserted by the user callback
 =#
 
+
+# Está sendo utilizado? Parece que não
 mutable struct Layer
     type::String
     l_number::Int64 
@@ -17,20 +19,20 @@ mutable struct Layer
 end
 
 
-# Creates function to build the model we'll run in VRPSolver.
+# Creates function to build the model that we'll run in VRPSolver.
 function build_model(data::DataOPHS, app)
-    total_cuts = 0 #Initializes the total number of cuts 
+    total_cuts = 0 #Initializes the total number of cuts used.
     E = edges(data) # Set of edges of the input graph G′. It is the same of data.G'.E
-    H = data.Hotels # Set of hotels. The tour starts at H[1] and ends at hotel H[2]
-    C = data.Customers # Set of customers
-    n = length(H)+length(C) # Total number of vertices
-    Tmax = data.Tmax # Total tour length
-    D = data.D # Number of trips
+    H = data.Hotels # Set of hotels. The tour starts at H[1] and ends at hotel H[2].
+    C = data.Customers # Set of customers.
+    n = length(H)+length(C) # Total number of vertices.
+    Tmax = data.Tmax # Total tour length.
+    D = data.D # Number of trips.
     Td = data.Td # Vector containing the length of each trip. If data.symmetric == true then the maximum length of each trip is equal to Td[1]
     
     T=[i for i=1:D] # Set of trip indexes.
     
-    # Function ed will define which direction will be mapped (correct?) 
+    # Function ed will define which direction will be mapped 
     ed(i, j) = i < j ? (i, j) : (j, i)
 
     
@@ -45,16 +47,15 @@ function build_model(data::DataOPHS, app)
 
     # Variables
     
-    @variable(bwtsp.formulation, x[e in E], Int) # Times an edge e is traversed 
-    @variable(bwtsp.formulation, 0 <= g[i in C] <= 1, Int) # g_i = 1 if the customer i is visited
+    @variable(bwtsp.formulation, x[e in E], Int) # Number of times edge e is traversed.
+    @variable(bwtsp.formulation, 0 <= g[i in C] <= 1, Int) # g_i = 1 if the customer i is visited.
     
-    # If symmetric, we don't need to keep the moment a trip was made
+    # If symmetric, we don't need to keep the moment a trip was made. The order does not influence the result.
     if data.symmetric
-        # y[i] is the number of times that the hotel i is visited
-        @variable(bwtsp.formulation, y[i in H], Int) 
+        @variable(bwtsp.formulation, y[i in H], Int) # y[i] is the number of times that the hotel i is visited
     else
-        @variable(bwtsp.formulation, y[i in H, k in T], Int) #y[i,k] = 1 if the trip k starts at the hotel i
-        @variable(bwtsp.formulation, t[i in H, k in T], Int) #t[i,k] = 1 if the trip k ends at the hotel i
+        @variable(bwtsp.formulation, y[i in H, k in T], Int) # y[i,k] = 1 if trip k starts at the hotel i
+        @variable(bwtsp.formulation, t[i in H, k in T], Int) # t[i,k] = 1 if trip k ends at the hotel i
     end
     
     # Objective Function
@@ -62,7 +63,7 @@ function build_model(data::DataOPHS, app)
     @objective(bwtsp.formulation, Min, -sum(s(data,i)*g[i] for i in C))
 
     # Constraints
-
+    
     # The total tour length does not exceed Tmax
     if data.symmetric
         # If symmetric, we sum the cost of a "dummy arc" from the start to the end
@@ -74,11 +75,10 @@ function build_model(data::DataOPHS, app)
         end 
     end
 
-    # A client is visited only once? 
-    # The degree of a visited client is 2
+    # Is each customer visited only once? 
+    # Is the degree of a visited customer 2?
     @constraint(bwtsp.formulation, deg[i in C], sum(x[e] for e in E if e[1] == i || e[2]==i) == 2*g[i]) 
     
-    # The 2 below are not guaranteed in the definition of the variables g[i]?
     @constraint(bwtsp.formulation, men[i in C], g[i] <= 1) 
     @constraint(bwtsp.formulation, mai[i in C], g[i] >= 0)
     
@@ -98,20 +98,19 @@ function build_model(data::DataOPHS, app)
     #println(bwtsp.formulation)
 
     # Now we'll build the graphs.
-    # The non_symmetric case.
+    
+    # A small that could be used to represent the dummy trip 
     function build_trip_1_2_graph()
-        
-        V′ = [1,2]
-  
+        V′ = [1,2] # just the two vertices are necessary. This graph is only for the dummy trip
         v_source, v_sink = 1, 2
-        L, U = 1,1 # Each graph is used to generate a single trip
+        L, U = 1,1 # The graph is used to generate a single trip    
         G = VrpGraph(bwtsp, V′, v_source, v_sink, (L, U))
-
         arc_id = add_arc!(G, v_source, v_sink)
         add_arc_var_mapping!(G, arc_id, [x[(1,2)],y[1],y[2]])
-
         return G
     end
+    
+    # The non_symmetric case.
     function build_graph_non_symmetric(trip_index, trip_length)
         #= 
         # The Vertices of the graph are:

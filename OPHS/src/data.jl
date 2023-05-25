@@ -1,5 +1,19 @@
 import Unicode
 
+#= How the instaces are provided
+    aux[1]: number of customers + 2
+    aux[2]: number of hotels - 2
+    aux[3]: number of trips (D)
+    aux[4]: Tmax
+    aux[5]: T_1
+    aux[6]: T_2
+    ...
+    next, we'll have the vetex data. 
+    At each row: x_pos, y_pos, score
+=#
+
+
+
 # Struct of a Vertex (customer and hotel)  
 mutable struct Vertex
     id_vertex::Int # id of the vertex
@@ -8,15 +22,24 @@ mutable struct Vertex
     score::Float64 # Score of each customer
 end
 
-# Undirected graph
+#= InputGraph
+    The struct below will construct the undirected graph of the instance.
+    The graph will be an object that catains a set of vertices V' and edges E
+    V' is the union of customers and hotels
+    each e \in E has a cost
+=#
 mutable struct InputGraph
     V′::Array{Vertex} # set of vertices (Customers U Hotels). Each vertex is a struct as above
     E::Array{Tuple{Int64,Int64}} # set of edges
     cost::Dict{Tuple{Int64,Int64},Float64} # cost for each edge
 end
 
+
+#= DataOPHS
+    The struct below organizes the info in a data file.
+=#
 mutable struct DataOPHS
-    G′::InputGraph
+    G′::InputGraph # mutable struct provided above 
     Hotels::Array{Int64} # Hotel nodes. The first two hotels are respectively the start depot and the end depot 
     Customers::Array{Int64} # Customer nodes
     Tmax::Float64 # Total tour length
