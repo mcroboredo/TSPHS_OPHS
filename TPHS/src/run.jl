@@ -44,7 +44,7 @@ function run_TSPHS(app::Dict{String,Any})
    flush(stdout)
 
    instance_name = split(basename(app["instance"]), ".")[1]
-   data = readTSPHSData2(app)
+   data = readTSPHSData(app)
    println("########################################################")
 
    if app["sol"] != nothing
@@ -55,7 +55,7 @@ function run_TSPHS(app::Dict{String,Any})
 
    solution_found = false
    if !app["nosolve"]
-      (model, x) = build_model(data, app)
+      (model, x,b) = build_model(data, app)
       optimizer = VrpOptimizer(model, app["cfg"], instance_name)
       set_cutoff!(optimizer, app["ub"])
 

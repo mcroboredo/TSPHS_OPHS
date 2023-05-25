@@ -102,7 +102,7 @@ function readTSPHSData(app::Dict{String,Any})
          end
       end
    end
-   # println(data.G′.V′)
+   println(data.G′.V′)
    # println(data.G′.cost)
 
    return data
@@ -186,6 +186,7 @@ function readTSPHSData2(app::Dict{String,Any})
 
    return data
 end
+
 
 edges(data::DataTSPHS) = data.G′.E # return set of edges
 c(data,e) = data.G′.cost[e] # cost of the edge e

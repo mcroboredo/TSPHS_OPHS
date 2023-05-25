@@ -7,6 +7,12 @@ function build_model(data::DataTSPHS, app::Dict{String,Any})
    C = data.C′ # Set of customers
    q = app["qvalue"] # q value
 
+   @show H
+   @show C
+   @show data.Lim
+
+   @show E′
+
    
 
    #v(i) = (i <= n) ? i : i - n # convert hotel vertex duplicates to original hotel vertex
@@ -45,8 +51,22 @@ function build_model(data::DataTSPHS, app::Dict{String,Any})
       for i in H # setting the arcs between source, sink, and hotels
          arc_id = add_arc!(G, v_source, i) # source -> i(Hotel)
          set_arc_consumption!(G, arc_id, cap_res_id, 0.0)
+         add_arc_var_mapping!(G, arc_id, b[i])
          arc_id = add_arc!(G, n+i, v_sink) # i(Hotel copy) -> sink
          set_arc_consumption!(G, arc_id, cap_res_id, 0.0)
+      end
+
+      for i in H
+         for j in H
+            if i != j
+               arc_id = add_arc!(G, i, j+n)
+               if i < j 
+                  add_arc_var_mapping!(G, arc_id, x[(i,j)])
+               else
+                  add_arc_var_mapping!(G, arc_id, x[(j,i)])
+               end
+            end
+         end
       end
 
       for i in H
@@ -92,32 +112,53 @@ function build_model(data::DataTSPHS, app::Dict{String,Any})
    set_branching_priority!(tsphs, "x", 1)
 
    function maxflow_mincut_callback()
+      fo = 0.0
       M = 100000
       g = SparseMaxFlowMinCut.ArcFlow[]
+      inteiro = true
       for (i,j) in E′
          e = (i,j)
+         
          value::Float64 = get_value(tsphs.optimizer, x[e])
+         fo += value*c(data,e)
+         if  value > 0.0001 && value < 0.999
+            inteiro = false
+         end
          if  value > 0.0001
             flow_::Int = trunc(floor(value, digits=5) * M)
             push!(g, SparseMaxFlowMinCut.ArcFlow(i, j, flow_)) # arc i -> j
             push!(g, SparseMaxFlowMinCut.ArcFlow(j, i, flow_)) # arc j -> i
          end
       end
+      @show fo
 
       added_cuts = []
       s = H[1]
       for t in 1:length(C)
          maxFlow, flows, cut = SparseMaxFlowMinCut.find_maxflow_mincut(SparseMaxFlowMinCut.Graph(n, g), s, C[t])
-         if (maxFlow/M) < (2 - 0.001) && !in(cut, added_cuts)
+         if inteiro && (maxFlow/M) < (2 - 0.001) && !in(cut, added_cuts)
+            
+
             set1, set2 = [], []
             [cut[i] == 1 ? push!(set1, i) : push!(set2, i) for i in 1:n]
+            @show maxFlow/M, C[t]
+            @show set1
+            @show set2
+            fo2 = 0.0
+            for i in set1
+               for j in set2
+                  value::Float64 = get_value(tsphs.optimizer, x[ed(i,j)])
+                  fo2 += c(data,ed(i,j))*value
+               end
+            end
+            @show fo2
             add_dynamic_constr!(tsphs.optimizer, [x[ed(i,j)] for i in set1 for j in set2], [1.0 for i in set1 for j in set2], >=, 2.0, "mincut")
             push!(added_cuts, cut)
          end
       end
       length(added_cuts) > 0 && printstyled(">>>>> Add min cuts : $(length(added_cuts)) cut(s) added\n", color=:yellow)
    end
-   #add_cut_callback!(tsphs, maxflow_mincut_callback, "mincut")
+   add_cut_callback!(tsphs, maxflow_mincut_callback, "mincut")
 
-   return (tsphs, x)
+   return (tsphs, x,b)
 end
