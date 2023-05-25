@@ -78,6 +78,8 @@ function readOPHSData(app::Dict{String,Any})
         end
     end
 
+    #data.symmetric = false
+
     # Getting vertices
     for i=1:parse(Int, aux[1])+parse(Int, aux[2])
         v = Vertex(0, 0, 0, 0) 

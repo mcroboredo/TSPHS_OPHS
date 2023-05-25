@@ -1,0 +1,147 @@
+Application parameters:
+  batch  =>  nothing
+  tikz  =>  "/TIKZ/64-65-3-4.tex"
+  instance  =>  "/IN/64-65-3-4.ophs"
+  out  =>  "/OUT/64-65-3-4.sol"
+  nosolve  =>  false
+  ub  =>  -1116
+  complete  =>  false
+  cfg  =>  "/BWTSP/src/../config/OPHS.cfg"
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+[41m solve [00m
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver v0.4.1, 24/03/2021. Web: vrpsolver.math.u-bordeaux.fr
+Corresponds to the solver by Pessoa, Sadykov, Uchoa and Vanderbeck (2020)
+Paper: dx.doi.org/10.1007/s10107-020-01523-z
+USE THIS CODE ONLY FOR ACADEMIC PURPOSES AT YOUR OWN RISK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BaPCod v053, 24/03/2021, © Inria Bordeaux, France
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver parameters:
+GlobalTimeLimit = 18000
+MaxNbOfBBtreeNodeTreated = 100000
+treeSearchStrategy = 1
+RCSPstopCutGenTimeThresholdInPricing = 10
+RCSPhardTimeThresholdInPricing = 25
+RCSPnumberOfBucketsPerVertex = 25
+RCSPdynamicBucketSteps = 1
+RCSPuseBidirectionalSearch = 2
+RCSPapplyReducedCostFixing = 1
+RCSPredCostFixingFalseGap = 0
+RCSPmaxNumOfColsPerIteration = 30
+RCSPmaxNumOfColsPerExactIteration = 150
+RCSPheurLabelingStrategy = 0
+StabilizationMinPhaseOfStage = 0
+RCSPmaxNumOfLabelsInEnumeration = 500000
+RCSPmaxNumOfEnumeratedSolutions = 5000000
+RCSPmaxNumOfEnumSolutionsForMIP = 10000
+RCSPinitNGneighbourhoodSize = 8
+RCSPmaxNGneighbourhoodSize = 8
+RCSPrankOneCutsMaxNumPerRound = 100
+RCSPrankOneCutsMaxNumRows = 5
+RCSPrankOneCutsMemoryType = 0
+CutTailingOffThreshold = 0.015
+CutTailingOffCounterThreshold = 3
+SafeDualBoundScaleFactor = -1
+StrongBranchingPhaseOneCandidatesNumber = 100
+StrongBranchingPhaseOneTreeSizeEstimRatio = 0.2
+StrongBranchingPhaseTwoCandidatesNumber = 3
+StrongBranchingPhaseTwoTreeSizeEstimRatio = 0.02
+MaxTimeForRestrictedMasterIpHeur = -1
+DivingHeurUseDepthLimit = 0
+MaxLDSbreadth = 1
+MaxLDSdepth = 10000
+New model incumbent solution -1115, TIME = 0h0m0s2t = 2
+Model is built TIME = 0h0m0s96t = 96
+************************************************************************************************
+**** BaB tree root node
+**** Local DB = -1e+12, global bounds : [ -1e+12 , -1115 ], TIME = 0h0m0s96t = 96
+**** 1 open nodes, 0 columns (0 active), 0 dyn. constrs. (0 active), 291 art. vars. (291 active)
+************************************************************************************************
+--------------------------------------------------------------------------
+BaPCod info : first we run the root node with rank-1 cuts with node memory
+--------------------------------------------------------------------------
+<DWph=2> <it= 10> <et=1.12> <Mt= 0.00> <Spt= 0.14> <nCl=181> <DB=-1338.4912> <Mlp=-1082.0816> <PB=-1115> 
+<DWph=2> <it= 17> <et=1.25> <Mt= 0.01> <Spt= 0.12> <nCl= 72> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it= 18> <et=1.30> <Mt= 0.00> <Spt= 0.05> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=0> <it= 19> <et=1.39> <Mt= 0.00> <Spt= 0.09> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+Reduced cost fixing for graph G_4... took 0.01 sec., 2212 buck. arcs remain (4.79% from prev., 1.28% from max.)
+Run enumeration... took 0.01 sec. and succeeded! Pricing will be done by inspection.
+Reduced cost fixing for graph G_3... took 0.01 sec., 2679 buck. arcs remain (4.77% from prev., 1.5% from max.)
+Run enumeration... took 0.02 sec. and succeeded! Pricing will be done by inspection.
+Reduced cost fixing for graph G_2... took 0.01 sec., 4774 buck. arcs remain (9.07% from prev., 2.73% from max.)
+Run enumeration... took 0.09 sec. and succeeded! Pricing will be done by inspection.
+Reduced cost fixing for graph G_1... took 0.01 sec., 804 buck. arcs remain (1.43% from prev., 0.449% from max.)
+Run enumeration... took 0.01 sec. and succeeded! Pricing will be done by inspection.
+<DWph=2> <it= 20> <et=1.64> <Mt= 0.01> <Spt= 0.01> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it= 21> <et=1.65> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=0> <it= 22> <et=1.65> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+----- Add fac. cuts : R1C(150), max.viol = 0.415087, aver.viol = 0.198796, sep/add took 0/0.01 sec. -----
+418 columns (418 active), 150 dyn. constrs. (150 active), 441 art. vars. (441 active)
+<DWph=2> <it=  1> <et=1.71> <Mt= 0.02> <Spt= 0.01> <nCl=  0> <DB=-1095.0917> <Mlp=-1095.0917> <PB=-1115> 
+<DWph=1> <it=  2> <et=1.72> <Mt= 0.00> <Spt= 0.01> <nCl=  0> <DB=-1095.0917> <Mlp=-1095.0917> <PB=-1115> 
+<DWph=0> <it=  4> <et=1.79> <Mt= 0.02> <Spt= 0.05> <nCl=523> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+Gap improvement since the last cut separation : -1.15959e-11 (-1116)
+----- Add fac. cuts : R1C(250), max.viol = 0.362051, aver.viol = 0.113024, sep/add took 0.05/0.05 sec. -----
+982 columns (982 active), 400 dyn. constrs. (400 active), 691 art. vars. (691 active)
+<DWph=2> <it=  1> <et=2.03> <Mt= 0.11> <Spt= 0.01> <nCl=  0> <DB=-1112.6783> <Mlp=-1112.6783> <PB=-1115> 
+<DWph=1> <it=  2> <et=2.04> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1112.6783> <Mlp=-1112.6783> <PB=-1115> 
+<DWph=0> <it=  4> <et=2.20> <Mt= 0.06> <Spt= 0.09> <nCl=348> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+Gap improvement since the last cut separation : 6.3664e-12 (-1116)
+----- Add fac. cuts : R1C(236), max.viol = 0.173713, aver.viol = 0.0879594, sep/add took 0.53/0.07 sec. -----
+1403 columns (1403 active), 636 dyn. constrs. (636 active), 927 art. vars. (927 active)
+<DWph=2> <it=  1> <et=2.93> <Mt= 0.09> <Spt= 0.01> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it=  2> <et=2.94> <Mt= 0.00> <Spt= 0.01> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=0> <it=  3> <et=2.94> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+Gap improvement since the last cut separation : 2.11455e-11 (-1116)
+----- Add fac. cuts : R1C(286), max.viol = 0.339286, aver.viol = 0.153159, sep/add took 0.25/0.1 sec. -----
+1403 columns (1403 active), 922 dyn. constrs. (922 active), 1213 art. vars. (1213 active)
+<DWph=2> <it=  1> <et=3.76> <Mt= 0.43> <Spt= 0.01> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it=  2> <et=3.77> <Mt= 0.00> <Spt= 0.01> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=0> <it=  3> <et=3.78> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+Gap improvement since the last cut separation : 1.96449e-10 (-1116)
+----- Add fac. cuts : R1C(173), max.viol = 0.193548, aver.viol = 0.129219, sep/add took 0.21/0.06 sec. -----
+1403 columns (1403 active), 1095 dyn. constrs. (1095 active), 1386 art. vars. (1386 active)
+<DWph=2> <it=  1> <et=4.47> <Mt= 0.38> <Spt= 0.01> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it=  2> <et=4.48> <Mt= 0.00> <Spt= 0.01> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=0> <it=  3> <et=4.48> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+Gap improvement since the last cut separation : -2.35329e-10 (-1116)
+----- Cut generation is stopped due to tailing off -----
+----------- Diving heuristic started -----------
+<DWph=2> <it=  1> <et=4.52> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it=  2> <et=4.52> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=0> <it=  3> <et=4.52> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+---- Diving heuristic node with dive number = 0, fix depth = 1 and tabu list size = 0
+Fixed projected solution = [t_1_3_1_1_OspV=1, x_1_1_7_1_OspV=1, x_1_3_25_1_OspV=1, x_1_7_10_1_OspV=1, x_1_10_14_1_OspV=1, x_1_14_19_1_OspV=1, x_1_19_24_1_OspV=1, x_1_24_30_1_OspV=1, x_1_25_31_1_OspV=1, x_1_30_38_1_OspV=1, x_1_31_39_1_OspV=1, x_1_38_46_1_OspV=1, x_1_39_46_1_OspV=1, y_1_1_1_1_OspV=1]
+<DWph=2> <it=  1> <et=6.74> <Mt= 2.19> <Spt= 0.01> <nCl=  0> <DB= 2235.9310> <Mlp= 2235.9310> <PB=-1115> 
+<DWph=1> <it=  2> <et=6.75> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB= 2235.9310> <Mlp= 2235.9310> <PB=-1115> 
+<DWph=0> <it=  4> <et=7.00> <Mt= 0.08> <Spt= 0.17> <nCl=306> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+---- Diving heuristic node with dive number = 0, fix depth = 2 and tabu list size = 0
+Fixed projected solution = [t_4_2_4_4_OspV=1, x_4_2_66_4_OspV=1, x_4_5_27_4_OspV=1, x_4_26_33_4_OspV=1, x_4_26_34_4_OspV=1, x_4_27_34_4_OspV=1, x_4_33_41_4_OspV=1, x_4_41_48_4_OspV=1, x_4_48_54_4_OspV=1, x_4_54_59_4_OspV=1, x_4_59_63_4_OspV=1, x_4_63_66_4_OspV=1, y_4_5_4_4_OspV=1]
+<DWph=2> <it=  1> <et=7.48> <Mt= 0.46> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1116> 
+New model incumbent solution -1116, TIME = 0h0m7s51t = 751
+************************************************************************************************
+Search is finished, global bounds : [ -1116 , -1116 ], TIME = 0h0m7s51t = 751
+************************************************************************************************
+[32mBaPCod : solution defined.[00m
+statistics_cols: instance & :Optimal & cutoff & :bcRecRootDb & :bcTimeRootEval & :bcCountNodeProc & :bcRecBestDb & :bcRecBestInc & :bcTimeMain \\
+statistics: 64-65-3-4 & 1 & -1114.99999 & -1116.00 & 4.51 & 1 & -1116.00 & -1116 & 7.51 \\
+########################################################
+trip 1 : 1 7 10 14 19 24 30 38 46 39 31 25 3 
+trip 2 : 3 32 40 47 53 58 62 52 45 37 29 36 44 4 
+trip 3 : 4 50 43 49 42 35 28 21 16 11 15 20 5 
+trip 4 : 5 27 34 26 33 41 48 54 59 63 66 2 
+tour : 1 7 10 14 19 24 30 38 46 39 31 25 3 32 40 47 53 58 62 52 45 37 29 36 44 4 50 43 49 42 35 28 21 16 11 15 20 5 27 34 26 33 41 48 54 59 63 66 2
+Cost 1116.0
+########################################################

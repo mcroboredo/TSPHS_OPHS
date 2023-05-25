@@ -7,6 +7,7 @@ include("solution.jl")
 include("SparseMaxFlowMinCut.jl")
 
 
+
 function parse_commandline(args_array::Array{String,1}, appfolder::String)
     s = ArgParseSettings(usage="##### VRPSolver #####\n\n" *
 	   "  On interactive mode, call main([\"arg1\", ..., \"argn\"])", exit_after_help=false)
@@ -29,12 +30,16 @@ function parse_commandline(args_array::Array{String,1}, appfolder::String)
             action = :store_true
         "--batch", "-b"
             help = "batch file path"
+        
+        "--complete", "-C"
+            help = "is it the complete path generator graph formulation?"
+            action = :store_true
     end
    return parse_args(args_array, s)
 end
 
 function run_bwtsp(app::Dict{String,Any})
-    sol = Solution(0.0, Dict())
+    sol = Solution(0.0, Dict(), [])
     println("Application parameters:")
     for (arg, val) in app
         println("  $arg  =>  $(repr(val))")
@@ -48,9 +53,9 @@ function run_bwtsp(app::Dict{String,Any})
     solution_found = false
     if !app["nosolve"]
         if data.symmetric
-            (model, x, y, g) = build_model(data)
+            (model, x, y, g) = build_model(data, app)
         else 
-            (model, x, y,t, g) = build_model(data)
+            (model, x, y,t, g) = build_model(data, app)
         end
 
         optimizer = VrpOptimizer(model, app["cfg"], instance_name)
@@ -71,7 +76,11 @@ function run_bwtsp(app::Dict{String,Any})
     if solution_found # Is there a solution?
         #checksolution(data,optimizer,sol, x, y,t,g)
         print_trips(data,sol)
-        println("Cost $(sol.cost)")
+        print_tour(sol)
+        println("Cost $(-sol.cost)")
+        if data.symmetric
+            println("Number of user cuts ", data.cuts)
+        end
         
         if app["out"] != nothing
             writesolution(data, app["out"], sol)

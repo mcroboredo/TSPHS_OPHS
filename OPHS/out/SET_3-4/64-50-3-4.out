@@ -1,0 +1,98 @@
+Application parameters:
+  batch  =>  nothing
+  tikz  =>  "/TIKZ/64-50-3-4.tex"
+  instance  =>  "/IN/64-50-3-4.ophs"
+  out  =>  "/OUT/64-50-3-4.sol"
+  nosolve  =>  false
+  ub  =>  -900
+  complete  =>  false
+  cfg  =>  "/BWTSP/src/../config/OPHS.cfg"
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+[41m solve [00m
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver v0.4.1, 24/03/2021. Web: vrpsolver.math.u-bordeaux.fr
+Corresponds to the solver by Pessoa, Sadykov, Uchoa and Vanderbeck (2020)
+Paper: dx.doi.org/10.1007/s10107-020-01523-z
+USE THIS CODE ONLY FOR ACADEMIC PURPOSES AT YOUR OWN RISK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BaPCod v053, 24/03/2021, © Inria Bordeaux, France
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver parameters:
+GlobalTimeLimit = 18000
+MaxNbOfBBtreeNodeTreated = 100000
+treeSearchStrategy = 1
+RCSPstopCutGenTimeThresholdInPricing = 10
+RCSPhardTimeThresholdInPricing = 25
+RCSPnumberOfBucketsPerVertex = 25
+RCSPdynamicBucketSteps = 1
+RCSPuseBidirectionalSearch = 2
+RCSPapplyReducedCostFixing = 1
+RCSPredCostFixingFalseGap = 0
+RCSPmaxNumOfColsPerIteration = 30
+RCSPmaxNumOfColsPerExactIteration = 150
+RCSPheurLabelingStrategy = 0
+StabilizationMinPhaseOfStage = 0
+RCSPmaxNumOfLabelsInEnumeration = 500000
+RCSPmaxNumOfEnumeratedSolutions = 5000000
+RCSPmaxNumOfEnumSolutionsForMIP = 10000
+RCSPinitNGneighbourhoodSize = 8
+RCSPmaxNGneighbourhoodSize = 8
+RCSPrankOneCutsMaxNumPerRound = 100
+RCSPrankOneCutsMaxNumRows = 5
+RCSPrankOneCutsMemoryType = 0
+CutTailingOffThreshold = 0.015
+CutTailingOffCounterThreshold = 3
+SafeDualBoundScaleFactor = -1
+StrongBranchingPhaseOneCandidatesNumber = 100
+StrongBranchingPhaseOneTreeSizeEstimRatio = 0.2
+StrongBranchingPhaseTwoCandidatesNumber = 3
+StrongBranchingPhaseTwoTreeSizeEstimRatio = 0.02
+MaxTimeForRestrictedMasterIpHeur = -1
+DivingHeurUseDepthLimit = 0
+MaxLDSbreadth = 1
+MaxLDSdepth = 10000
+New model incumbent solution -899, TIME = 0h0m0s2t = 2
+Model is built TIME = 0h0m1s2t = 102
+************************************************************************************************
+**** BaB tree root node
+**** Local DB = -1e+12, global bounds : [ -1e+12 , -899 ], TIME = 0h0m1s2t = 102
+**** 1 open nodes, 0 columns (0 active), 0 dyn. constrs. (0 active), 291 art. vars. (291 active)
+************************************************************************************************
+--------------------------------------------------------------------------
+BaPCod info : first we run the root node with rank-1 cuts with node memory
+--------------------------------------------------------------------------
+<DWph=2> <it= 10> <et=1.15> <Mt= 0.00> <Spt= 0.11> <nCl=160> <DB= -967.9516> <Mlp= -877.5724> <PB=-898.99999> 
+<DWph=2> <it= 20> <et=1.28> <Mt= 0.01> <Spt= 0.12> <nCl= 53> <DB= -885.7293> <Mlp= -884.9617> <PB=-898.99999> 
+<DWph=2> <it= 23> <et=1.33> <Mt= 0.00> <Spt= 0.04> <nCl=  3> <DB= -885.0000> <Mlp= -885.0000> <PB=-898.99999> 
+<DWph=1> <it= 30> <et=1.45> <Mt= 0.00> <Spt= 0.12> <nCl= 33> <DB= -904.8785> <Mlp= -899.0000> <PB=-898.99999> 
+<DWph=1> <it= 34> <et=1.59> <Mt= 0.01> <Spt= 0.14> <nCl=  5> <DB= -900.0000> <Mlp= -900.0000> <PB=-898.99999> 
+<DWph=0> <it= 36> <et=1.70> <Mt= 0.00> <Spt= 0.11> <nCl=  6> <DB= -900.0000> <Mlp= -900.0000> <PB=-898.99999> 
+Reduced cost fixing for graph G_4... took 0 sec., 667 buck. arcs remain (2.21% from prev., 0.423% from max.)
+Run enumeration... took 0.01 sec. and succeeded! Pricing will be done by inspection.
+Reduced cost fixing for graph G_3... took 0.01 sec., 2132 buck. arcs remain (5.19% from prev., 1.24% from max.)
+Run enumeration... took 0.01 sec. and succeeded! Pricing will be done by inspection.
+Reduced cost fixing for graph G_2... took 0.01 sec., 1313 buck. arcs remain (3.19% from prev., 0.764% from max.)
+Run enumeration... took 0.01 sec. and succeeded! Pricing will be done by inspection.
+Reduced cost fixing for graph G_1... took 0.01 sec., 998 buck. arcs remain (2.38% from prev., 0.58% from max.)
+Run enumeration... took 0.01 sec. and succeeded! Pricing will be done by inspection.
+ColGenEvalAlg final dual bound: -900 (rounded: -900)
+----- Terminating the node by MIP -----
+MIP found solution with value -900
+New model incumbent solution -900, TIME = 0h0m1s84t = 184
+************************************************************************************************
+Search is finished, global bounds : [ -900 , -900 ], TIME = 0h0m1s84t = 184
+************************************************************************************************
+[32mBaPCod : solution defined.[00m
+statistics_cols: instance & :Optimal & cutoff & :bcRecRootDb & :bcTimeRootEval & :bcCountNodeProc & :bcRecBestDb & :bcRecBestInc & :bcTimeMain \\
+statistics: 64-50-3-4 & 1 & -898.99999 & -900.00 & 1.84 & 1 & -900.00 & -900 & 1.84 \\
+########################################################
+trip 1 : 1 13 18 24 19 25 31 39 5 
+trip 2 : 5 32 40 47 53 46 52 45 38 30 37 4 
+trip 3 : 4 29 36 28 35 27 20 26 33 41 3 
+trip 4 : 3 34 42 48 54 59 63 66 2 
+tour : 1 13 18 24 19 25 31 39 5 32 40 47 53 46 52 45 38 30 37 4 29 36 28 35 27 20 26 33 41 3 34 42 48 54 59 63 66 2
+Cost 900.0
+########################################################

@@ -1,0 +1,88 @@
+Application parameters:
+  batch  =>  nothing
+  tikz  =>  "/TIKZ/T3-90-1-2.tex"
+  instance  =>  "/IN/T3-90-1-2.ophs"
+  out  =>  "/OUT/T3-90-1-2.sol"
+  nosolve  =>  false
+  ub  =>  -770
+  complete  =>  false
+  cfg  =>  "/BWTSP/src/../config/OPHS.cfg"
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+[41m solve [00m
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver v0.4.1, 24/03/2021. Web: vrpsolver.math.u-bordeaux.fr
+Corresponds to the solver by Pessoa, Sadykov, Uchoa and Vanderbeck (2020)
+Paper: dx.doi.org/10.1007/s10107-020-01523-z
+USE THIS CODE ONLY FOR ACADEMIC PURPOSES AT YOUR OWN RISK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BaPCod v053, 24/03/2021, © Inria Bordeaux, France
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver parameters:
+GlobalTimeLimit = 18000
+MaxNbOfBBtreeNodeTreated = 100000
+treeSearchStrategy = 1
+RCSPstopCutGenTimeThresholdInPricing = 10
+RCSPhardTimeThresholdInPricing = 25
+RCSPnumberOfBucketsPerVertex = 25
+RCSPdynamicBucketSteps = 1
+RCSPuseBidirectionalSearch = 2
+RCSPapplyReducedCostFixing = 1
+RCSPredCostFixingFalseGap = 0
+RCSPmaxNumOfColsPerIteration = 30
+RCSPmaxNumOfColsPerExactIteration = 150
+RCSPheurLabelingStrategy = 0
+StabilizationMinPhaseOfStage = 0
+RCSPmaxNumOfLabelsInEnumeration = 500000
+RCSPmaxNumOfEnumeratedSolutions = 5000000
+RCSPmaxNumOfEnumSolutionsForMIP = 10000
+RCSPinitNGneighbourhoodSize = 8
+RCSPmaxNGneighbourhoodSize = 8
+RCSPrankOneCutsMaxNumPerRound = 100
+RCSPrankOneCutsMaxNumRows = 5
+RCSPrankOneCutsMemoryType = 0
+CutTailingOffThreshold = 0.015
+CutTailingOffCounterThreshold = 3
+SafeDualBoundScaleFactor = -1
+StrongBranchingPhaseOneCandidatesNumber = 100
+StrongBranchingPhaseOneTreeSizeEstimRatio = 0.2
+StrongBranchingPhaseTwoCandidatesNumber = 3
+StrongBranchingPhaseTwoTreeSizeEstimRatio = 0.02
+MaxTimeForRestrictedMasterIpHeur = -1
+DivingHeurUseDepthLimit = 0
+MaxLDSbreadth = 1
+MaxLDSdepth = 10000
+New model incumbent solution -769, TIME = 0h0m0s2t = 2
+Model is built TIME = 0h0m0s79t = 79
+************************************************************************************************
+**** BaB tree root node
+**** Local DB = -1e+12, global bounds : [ -1e+12 , -769 ], TIME = 0h0m0s79t = 79
+**** 1 open nodes, 0 columns (0 active), 0 dyn. constrs. (0 active), 139 art. vars. (139 active)
+************************************************************************************************
+--------------------------------------------------------------------------
+BaPCod info : first we run the root node with rank-1 cuts with node memory
+--------------------------------------------------------------------------
+<DWph=2> <it= 10> <et=0.82> <Mt= 0.00> <Spt= 0.02> <nCl= 60> <DB=-46391.7580> <Mlp=  960.3333> <PB=-768.99999> 
+<DWph=2> <it= 20> <et=0.85> <Mt= 0.00> <Spt= 0.02> <nCl= 57> <DB= -779.8521> <Mlp= -716.2205> <PB=-768.99999> 
+<DWph=2> <it= 30> <et=0.88> <Mt= 0.01> <Spt= 0.02> <nCl= 44> <DB= -756.7639> <Mlp= -734.4092> <PB=-768.99999> 
+<DWph=2> <it= 40> <et=0.91> <Mt= 0.00> <Spt= 0.03> <nCl= 19> <DB= -757.9276> <Mlp= -744.0351> <PB=-768.99999> 
+<DWph=2> <it= 42> <et=0.92> <Mt= 0.00> <Spt= 0.01> <nCl=  6> <DB= -753.7368> <Mlp= -744.0351> <PB=-768.99999> 
+<DWph=1> <it= 50> <et=1.04> <Mt= 0.00> <Spt= 0.11> <nCl= 32> <DB= -761.5584> <Mlp= -753.5185> <PB=-768.99999> 
+<DWph=1> <it= 60> <et=1.19> <Mt= 0.01> <Spt= 0.15> <nCl= 32> <DB= -759.8267> <Mlp= -756.0000> <PB=-768.99999> 
+<DWph=1> <it= 68> <et=1.29> <Mt= 0.00> <Spt= 0.09> <nCl= 10> <DB= -761.9518> <Mlp= -760.0000> <PB=-768.99999> 
+<DWph=0> <it= 70> <et=1.48> <Mt= 0.00> <Spt= 0.19> <nCl=333> <DB= -778.0831> <Mlp= -770.0000> <PB=-770> 
+<DWph=0> <it= 73> <et=1.83> <Mt= 0.00> <Spt= 0.35> <nCl= 63> <DB= -770.3011> <Mlp= -770.0000> <PB=-770> 
+ColGenEvalAlg final dual bound: -770.301 (rounded: -770)
+New model incumbent solution -770, TIME = 0h0m1s83t = 183
+************************************************************************************************
+Search is finished, global bounds : [ -770 , -770 ], TIME = 0h0m1s83t = 183
+************************************************************************************************
+[32mBaPCod : solution defined.[00m
+statistics_cols: instance & :Optimal & cutoff & :bcRecRootDb & :bcTimeRootEval & :bcCountNodeProc & :bcRecBestDb & :bcRecBestInc & :bcTimeMain \\
+statistics: T3-90-1-2 & 1 & -768.99999 & -770.00 & 1.83 & 1 & -770.00 & -770 & 1.83 \\
+########################################################
+trip 1 : 1 26 24 9 7 30 16 6 22 19 23 18 17 15 5 8 4 10 3 
+trip 2 : 3 33 14 13 21 20 12 11 32 31 28 34 2 
+tour : 1 26 24 9 7 30 16 6 22 19 23 18 17 15 5 8 4 10 3 33 14 13 21 20 12 11 32 31 28 34 2
+Cost 770.0
+########################################################

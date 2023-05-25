@@ -1,0 +1,458 @@
+Application parameters:
+  batch  =>  nothing
+  tikz  =>  "/TIKZ/66-130-1-2.tex"
+  instance  =>  "/IN/66-130-1-2.ophs"
+  out  =>  "/OUT/66-130-1-2.sol"
+  nosolve  =>  false
+  ub  =>  -1680
+  complete  =>  false
+  cfg  =>  "/BWTSP/src/../config/OPHS.cfg"
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+[41m solve [00m
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver v0.4.1, 24/03/2021. Web: vrpsolver.math.u-bordeaux.fr
+Corresponds to the solver by Pessoa, Sadykov, Uchoa and Vanderbeck (2020)
+Paper: dx.doi.org/10.1007/s10107-020-01523-z
+USE THIS CODE ONLY FOR ACADEMIC PURPOSES AT YOUR OWN RISK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BaPCod v053, 24/03/2021, © Inria Bordeaux, France
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver parameters:
+GlobalTimeLimit = 18000
+MaxNbOfBBtreeNodeTreated = 100000
+treeSearchStrategy = 1
+RCSPstopCutGenTimeThresholdInPricing = 10
+RCSPhardTimeThresholdInPricing = 25
+RCSPnumberOfBucketsPerVertex = 25
+RCSPdynamicBucketSteps = 1
+RCSPuseBidirectionalSearch = 2
+RCSPapplyReducedCostFixing = 1
+RCSPredCostFixingFalseGap = 0
+RCSPmaxNumOfColsPerIteration = 30
+RCSPmaxNumOfColsPerExactIteration = 150
+RCSPheurLabelingStrategy = 0
+StabilizationMinPhaseOfStage = 0
+RCSPmaxNumOfLabelsInEnumeration = 500000
+RCSPmaxNumOfEnumeratedSolutions = 5000000
+RCSPmaxNumOfEnumSolutionsForMIP = 10000
+RCSPinitNGneighbourhoodSize = 8
+RCSPmaxNGneighbourhoodSize = 8
+RCSPrankOneCutsMaxNumPerRound = 100
+RCSPrankOneCutsMaxNumRows = 5
+RCSPrankOneCutsMemoryType = 0
+CutTailingOffThreshold = 0.015
+CutTailingOffCounterThreshold = 3
+SafeDualBoundScaleFactor = -1
+StrongBranchingPhaseOneCandidatesNumber = 100
+StrongBranchingPhaseOneTreeSizeEstimRatio = 0.2
+StrongBranchingPhaseTwoCandidatesNumber = 3
+StrongBranchingPhaseTwoTreeSizeEstimRatio = 0.02
+MaxTimeForRestrictedMasterIpHeur = -1
+DivingHeurUseDepthLimit = 0
+MaxLDSbreadth = 1
+MaxLDSdepth = 10000
+New model incumbent solution -1679, TIME = 0h0m0s2t = 2
+Model is built TIME = 0h0m0s86t = 86
+************************************************************************************************
+**** BaB tree root node
+**** Local DB = -1e+12, global bounds : [ -1e+12 , -1679 ], TIME = 0h0m0s86t = 86
+**** 1 open nodes, 0 columns (0 active), 0 dyn. constrs. (0 active), 271 art. vars. (271 active)
+************************************************************************************************
+--------------------------------------------------------------------------
+BaPCod info : first we run the root node with rank-1 cuts with node memory
+--------------------------------------------------------------------------
+<DWph=2> <it= 10> <et=0.99> <Mt= 0.00> <Spt= 0.11> <nCl= 60> <DB=-46120.5078> <Mlp= 5288.2792> <PB=-1679> 
+<DWph=2> <it= 20> <et=1.13> <Mt= 0.01> <Spt= 0.13> <nCl= 60> <DB=-2313.8145> <Mlp=-1572.3127> <PB=-1679> 
+<DWph=2> <it= 30> <et=1.26> <Mt= 0.01> <Spt= 0.12> <nCl= 60> <DB=-1833.3054> <Mlp=-1615.5139> <PB=-1679> 
+<DWph=2> <it= 40> <et=1.39> <Mt= 0.01> <Spt= 0.12> <nCl= 59> <DB=-1807.6814> <Mlp=-1644.5306> <PB=-1679> 
+<DWph=2> <it= 50> <et=1.53> <Mt= 0.01> <Spt= 0.12> <nCl= 57> <DB=-1765.8076> <Mlp=-1654.7929> <PB=-1679> 
+<DWph=2> <it= 60> <et=1.67> <Mt= 0.02> <Spt= 0.12> <nCl= 60> <DB=-1724.6829> <Mlp=-1665.2157> <PB=-1679> 
+<DWph=2> <it= 70> <et=1.81> <Mt= 0.02> <Spt= 0.12> <nCl= 49> <DB=-1703.6047> <Mlp=-1671.2042> <PB=-1679> 
+<DWph=2> <it= 80> <et=1.95> <Mt= 0.01> <Spt= 0.11> <nCl= 50> <DB=-1692.2095> <Mlp=-1673.6887> <PB=-1679> 
+<DWph=2> <it= 90> <et=2.09> <Mt= 0.02> <Spt= 0.12> <nCl= 52> <DB=-1689.8872> <Mlp=-1675.1443> <PB=-1679> 
+<DWph=2> <it=100> <et=2.23> <Mt= 0.01> <Spt= 0.12> <nCl= 40> <DB=-1687.1402> <Mlp=-1675.9464> <PB=-1679> 
+<DWph=2> <it=110> <et=2.37> <Mt= 0.02> <Spt= 0.12> <nCl= 33> <DB=-1669.6255> <Mlp=-1676.6730> <PB=-1679> 
+<DWph=1> <it=120> <et=3.05> <Mt= 0.02> <Spt= 0.64> <nCl= 57> <DB=-1693.1414> <Mlp=-1678.5892> <PB=-1679> 
+<DWph=1> <it=124> <et=3.44> <Mt= 0.01> <Spt= 0.38> <nCl= 18> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=0> <it=125> <et=3.48> <Mt= 0.00> <Spt= 0.04> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+Reduced cost fixing for graph G_2... took 0.07 sec., 88561 buck. arcs remain (93.7% from prev., 41.8% from max.)
+Run enumeration... took 0.02 sec. and not succeeded.
+Reduced cost fixing for graph G_1... took 0.07 sec., 88609 buck. arcs remain (93.7% from prev., 41.8% from max.)
+Run enumeration... took 0.02 sec. and not succeeded.
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+----- Add fac. cuts : R1C(69), max.viol = 0.434015, aver.viol = 0.237432, sep/add took 0.01/0.02 sec. -----
+784 columns (784 active), 69 dyn. constrs. (69 active), 340 art. vars. (340 active)
+<DWph=2> <it= 10> <et=4.02> <Mt= 0.07> <Spt= 0.22> <nCl= 60> <DB=-1875.7970> <Mlp=-1536.0492> <PB=-1679> 
+<DWph=2> <it= 20> <et=4.27> <Mt= 0.04> <Spt= 0.20> <nCl= 60> <DB=-1738.6747> <Mlp=-1594.7883> <PB=-1679> 
+<DWph=2> <it= 30> <et=4.54> <Mt= 0.04> <Spt= 0.21> <nCl= 60> <DB=-1687.2103> <Mlp=-1622.4662> <PB=-1679> 
+<DWph=2> <it= 40> <et=4.81> <Mt= 0.05> <Spt= 0.22> <nCl= 60> <DB=-1682.3353> <Mlp=-1634.7254> <PB=-1679> 
+<DWph=2> <it= 50> <et=5.09> <Mt= 0.04> <Spt= 0.22> <nCl= 60> <DB=-1680.3586> <Mlp=-1642.0072> <PB=-1679> 
+<DWph=2> <it= 60> <et=5.38> <Mt= 0.04> <Spt= 0.23> <nCl= 60> <DB=-1680.1625> <Mlp=-1645.8548> <PB=-1679> 
+<DWph=2> <it= 70> <et=5.67> <Mt= 0.06> <Spt= 0.23> <nCl= 60> <DB=-1680.2106> <Mlp=-1653.6655> <PB=-1679> 
+<DWph=2> <it= 80> <et=5.94> <Mt= 0.04> <Spt= 0.22> <nCl= 55> <DB=-1680.1507> <Mlp=-1656.8757> <PB=-1679> 
+<DWph=2> <it= 90> <et=6.23> <Mt= 0.05> <Spt= 0.22> <nCl= 60> <DB=-1680.1156> <Mlp=-1661.4749> <PB=-1679> 
+<DWph=2> <it=100> <et=6.53> <Mt= 0.05> <Spt= 0.23> <nCl= 54> <DB=-1680.0836> <Mlp=-1663.6384> <PB=-1679> 
+<DWph=2> <it=110> <et=6.83> <Mt= 0.06> <Spt= 0.22> <nCl= 60> <DB=-1680.0763> <Mlp=-1666.2463> <PB=-1679> 
+<DWph=2> <it=120> <et=7.12> <Mt= 0.04> <Spt= 0.22> <nCl= 58> <DB=-1680.0715> <Mlp=-1667.4736> <PB=-1679> 
+<DWph=2> <it=130> <et=7.42> <Mt= 0.07> <Spt= 0.23> <nCl= 56> <DB=-1680.0615> <Mlp=-1669.4749> <PB=-1679> 
+<DWph=2> <it=140> <et=7.73> <Mt= 0.05> <Spt= 0.23> <nCl= 55> <DB=-1680.0434> <Mlp=-1670.5429> <PB=-1679> 
+<DWph=2> <it=150> <et=8.04> <Mt= 0.07> <Spt= 0.23> <nCl= 52> <DB=-1680.0369> <Mlp=-1671.7921> <PB=-1679> 
+<DWph=2> <it=160> <et=8.37> <Mt= 0.07> <Spt= 0.23> <nCl= 54> <DB=-1680.0119> <Mlp=-1672.6836> <PB=-1679> 
+<DWph=2> <it=170> <et=8.69> <Mt= 0.07> <Spt= 0.23> <nCl= 54> <DB=-1680.0162> <Mlp=-1673.2082> <PB=-1679> 
+<DWph=2> <it=180> <et=9.04> <Mt= 0.10> <Spt= 0.23> <nCl= 54> <DB=-1680.0113> <Mlp=-1674.0737> <PB=-1679> 
+<DWph=2> <it=190> <et=9.35> <Mt= 0.06> <Spt= 0.22> <nCl= 55> <DB=-1680.0309> <Mlp=-1674.8605> <PB=-1679> 
+<DWph=2> <it=200> <et=9.66> <Mt= 0.07> <Spt= 0.23> <nCl= 55> <DB=-1680.0204> <Mlp=-1675.5165> <PB=-1679> 
+<DWph=2> <it=210> <et=9.97> <Mt= 0.05> <Spt= 0.23> <nCl= 49> <DB=-1680.0162> <Mlp=-1675.7561> <PB=-1679> 
+<DWph=2> <it=220> <et=10.28> <Mt= 0.06> <Spt= 0.23> <nCl= 49> <DB=-1680.0143> <Mlp=-1676.0916> <PB=-1679> 
+<DWph=2> <it=230> <et=10.59> <Mt= 0.05> <Spt= 0.24> <nCl= 44> <DB=-1680.0101> <Mlp=-1676.2299> <PB=-1679> 
+<DWph=2> <it=240> <et=10.89> <Mt= 0.04> <Spt= 0.23> <nCl= 44> <DB=-1680.0083> <Mlp=-1676.3015> <PB=-1679> 
+<DWph=2> <it=250> <et=11.20> <Mt= 0.05> <Spt= 0.23> <nCl= 52> <DB=-1680.0069> <Mlp=-1676.6764> <PB=-1679> 
+<DWph=2> <it=260> <et=11.52> <Mt= 0.07> <Spt= 0.23> <nCl= 46> <DB=-1680.0099> <Mlp=-1677.2647> <PB=-1679> 
+<DWph=2> <it=270> <et=11.83> <Mt= 0.06> <Spt= 0.22> <nCl= 47> <DB=-1680.0121> <Mlp=-1677.6539> <PB=-1679> 
+<DWph=2> <it=280> <et=12.12> <Mt= 0.04> <Spt= 0.22> <nCl= 41> <DB=-1680.0118> <Mlp=-1677.8038> <PB=-1679> 
+<DWph=2> <it=290> <et=12.43> <Mt= 0.06> <Spt= 0.23> <nCl= 43> <DB=-1680.0156> <Mlp=-1678.0449> <PB=-1679> 
+<DWph=2> <it=300> <et=12.74> <Mt= 0.06> <Spt= 0.22> <nCl= 39> <DB=-1680.0035> <Mlp=-1678.1256> <PB=-1679> 
+<DWph=2> <it=310> <et=13.08> <Mt= 0.05> <Spt= 0.25> <nCl= 34> <DB=-1679.9970> <Mlp=-1678.3323> <PB=-1679> 
+<DWph=2> <it=320> <et=13.41> <Mt= 0.07> <Spt= 0.24> <nCl= 34> <DB=-1680.3251> <Mlp=-1678.5324> <PB=-1679> 
+<DWph=2> <it=330> <et=13.76> <Mt= 0.07> <Spt= 0.24> <nCl= 42> <DB=-1680.0634> <Mlp=-1678.8594> <PB=-1679> 
+<DWph=2> <it=340> <et=14.15> <Mt= 0.07> <Spt= 0.29> <nCl= 33> <DB=-1679.6539> <Mlp=-1679.1202> <PB=-1679> 
+<DWph=2> <it=350> <et=14.54> <Mt= 0.03> <Spt= 0.31> <nCl= 26> <DB=-1679.8404> <Mlp=-1679.1205> <PB=-1679> 
+<DWph=2> <it=355> <et=14.75> <Mt= 0.03> <Spt= 0.16> <nCl= 15> <DB=-1680.7192> <Mlp=-1679.1607> <PB=-1679> 
+<DWph=1> <it=360> <et=15.50> <Mt= 0.06> <Spt= 0.68> <nCl= 30> <DB=-1692.8033> <Mlp=-1679.5267> <PB=-1679> 
+<DWph=1> <it=362> <et=16.12> <Mt= 0.03> <Spt= 0.57> <nCl=  6> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=0> <it=363> <et=16.12> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+Gap improvement since the last cut separation : 0 (-1680)
+----- Add fac. cuts : R1C(200), max.viol = 0.386535, aver.viol = 0.210122, sep/add took 0.33/0.36 sec. -----
+2942 columns (2942 active), 269 dyn. constrs. (269 active), 540 art. vars. (540 active)
+<DWph=2> <it= 10> <et=19.45> <Mt= 2.13> <Spt= 0.46> <nCl= 53> <DB=-1683.5729> <Mlp=-1664.1454> <PB=-1679> 
+<DWph=2> <it= 20> <et=20.53> <Mt= 0.57> <Spt= 0.46> <nCl= 54> <DB=-1683.0251> <Mlp=-1670.8328> <PB=-1679> 
+<DWph=2> <it= 30> <et=21.29> <Mt= 0.29> <Spt= 0.43> <nCl= 55> <DB=-1680.6249> <Mlp=-1672.6885> <PB=-1679> 
+<DWph=2> <it= 40> <et=22.15> <Mt= 0.38> <Spt= 0.44> <nCl= 52> <DB=-1680.1152> <Mlp=-1674.5184> <PB=-1679> 
+<DWph=2> <it= 50> <et=22.89> <Mt= 0.24> <Spt= 0.45> <nCl= 53> <DB=-1680.0297> <Mlp=-1675.1139> <PB=-1679> 
+<DWph=2> <it= 60> <et=23.60> <Mt= 0.24> <Spt= 0.42> <nCl= 46> <DB=-1680.0219> <Mlp=-1675.5749> <PB=-1679> 
+<DWph=2> <it= 70> <et=24.41> <Mt= 0.33> <Spt= 0.43> <nCl= 43> <DB=-1680.0174> <Mlp=-1676.5741> <PB=-1679> 
+<DWph=2> <it= 80> <et=25.05> <Mt= 0.15> <Spt= 0.43> <nCl= 35> <DB=-1680.9571> <Mlp=-1676.8034> <PB=-1679> 
+<DWph=2> <it= 90> <et=25.83> <Mt= 0.20> <Spt= 0.53> <nCl= 36> <DB=-1680.1898> <Mlp=-1677.0145> <PB=-1679> 
+<DWph=2> <it=100> <et=26.57> <Mt= 0.15> <Spt= 0.54> <nCl= 28> <DB=-1680.4446> <Mlp=-1677.1605> <PB=-1679> 
+<DWph=2> <it=110> <et=27.35> <Mt= 0.17> <Spt= 0.56> <nCl= 27> <DB=-1681.0604> <Mlp=-1677.3873> <PB=-1679> 
+<DWph=2> <it=120> <et=28.33> <Mt= 0.21> <Spt= 0.69> <nCl= 33> <DB=-1683.3307> <Mlp=-1677.5983> <PB=-1679> 
+<DWph=2> <it=123> <et=28.70> <Mt= 0.14> <Spt= 0.21> <nCl=  7> <DB=-1676.9453> <Mlp=-1677.8036> <PB=-1679> 
+<DWph=1> <it=130> <et=32.07> <Mt= 0.61> <Spt= 2.71> <nCl= 37> <DB=-1688.4486> <Mlp=-1679.2730> <PB=-1679> 
+<DWph=1> <it=134> <et=34.93> <Mt= 0.24> <Spt= 2.57> <nCl= 15> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=0> <it=135> <et=34.93> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+Gap improvement since the last cut separation : 0 (-1680)
+----- Add fac. cuts : R1C(204), max.viol = 0.413713, aver.viol = 0.194679, sep/add took 0.5/0.47 sec. -----
+3735 columns (3735 active), 473 dyn. constrs. (473 active), 744 art. vars. (744 active)
+<DWph=2> <it= 10> <et=45.35> <Mt= 8.58> <Spt= 0.76> <nCl= 59> <DB=-1691.7431> <Mlp=-1655.7463> <PB=-1679> 
+<DWph=2> <it= 20> <et=48.69> <Mt= 2.52> <Spt= 0.76> <nCl= 54> <DB=-1682.5560> <Mlp=-1662.2080> <PB=-1679> 
+<DWph=2> <it= 30> <et=50.52> <Mt= 1.04> <Spt= 0.71> <nCl= 55> <DB=-1680.7086> <Mlp=-1665.4564> <PB=-1679> 
+<DWph=2> <it= 40> <et=52.35> <Mt= 1.06> <Spt= 0.70> <nCl= 50> <DB=-1680.3181> <Mlp=-1668.7934> <PB=-1679> 
+<DWph=2> <it= 50> <et=55.47> <Mt= 2.27> <Spt= 0.77> <nCl= 52> <DB=-1680.0591> <Mlp=-1671.7684> <PB=-1679> 
+<DWph=2> <it= 60> <et=57.29> <Mt= 0.97> <Spt= 0.76> <nCl= 44> <DB=-1680.0413> <Mlp=-1673.0318> <PB=-1679> 
+<DWph=2> <it= 70> <et=58.57> <Mt= 0.44> <Spt= 0.76> <nCl= 44> <DB=-1680.0174> <Mlp=-1673.4413> <PB=-1679> 
+<DWph=2> <it= 80> <et=60.53> <Mt= 1.13> <Spt= 0.74> <nCl= 46> <DB=-1680.0086> <Mlp=-1674.2896> <PB=-1679> 
+<DWph=2> <it= 90> <et=62.48> <Mt= 1.11> <Spt= 0.75> <nCl= 44> <DB=-1680.0249> <Mlp=-1674.8149> <PB=-1679> 
+<DWph=2> <it=100> <et=64.52> <Mt= 1.27> <Spt= 0.69> <nCl= 47> <DB=-1680.0105> <Mlp=-1675.3904> <PB=-1679> 
+<DWph=2> <it=110> <et=66.15> <Mt= 0.81> <Spt= 0.72> <nCl= 45> <DB=-1680.0104> <Mlp=-1675.6139> <PB=-1679> 
+<DWph=2> <it=120> <et=67.76> <Mt= 0.73> <Spt= 0.79> <nCl= 39> <DB=-1680.8581> <Mlp=-1675.8289> <PB=-1679> 
+<DWph=2> <it=130> <et=69.68> <Mt= 0.92> <Spt= 0.90> <nCl= 45> <DB=-1680.3500> <Mlp=-1676.2811> <PB=-1679> 
+<DWph=2> <it=140> <et=71.66> <Mt= 0.91> <Spt= 0.96> <nCl= 43> <DB=-1680.0659> <Mlp=-1676.6249> <PB=-1679> 
+<DWph=2> <it=150> <et=73.36> <Mt= 0.55> <Spt= 1.04> <nCl= 33> <DB=-1680.7950> <Mlp=-1676.7998> <PB=-1679> 
+<DWph=2> <it=160> <et=75.19> <Mt= 0.61> <Spt= 1.09> <nCl= 29> <DB=-1681.5498> <Mlp=-1676.9127> <PB=-1679> 
+<DWph=2> <it=170> <et=77.34> <Mt= 0.89> <Spt= 1.13> <nCl= 37> <DB=-1680.1530> <Mlp=-1677.1551> <PB=-1679> 
+<DWph=2> <it=180> <et=79.40> <Mt= 0.76> <Spt= 1.17> <nCl= 35> <DB=-1681.8942> <Mlp=-1677.3448> <PB=-1679> 
+<DWph=2> <it=190> <et=81.47> <Mt= 0.70> <Spt= 1.24> <nCl= 30> <DB=-1680.3251> <Mlp=-1677.5102> <PB=-1679> 
+<DWph=2> <it=200> <et=83.40> <Mt= 0.52> <Spt= 1.27> <nCl= 33> <DB=-1683.2240> <Mlp=-1677.6295> <PB=-1679> 
+<DWph=2> <it=210> <et=85.62> <Mt= 0.77> <Spt= 1.30> <nCl= 23> <DB=-1680.6752> <Mlp=-1677.7886> <PB=-1679> 
+<DWph=2> <it=214> <et=86.64> <Mt= 0.27> <Spt= 0.67> <nCl= 10> <DB=-1677.5866> <Mlp=-1677.8373> <PB=-1679> 
+<DWph=1> <it=220> <et=92.58> <Mt= 1.85> <Spt= 4.01> <nCl= 34> <DB=-1691.9510> <Mlp=-1678.8237> <PB=-1679> 
+<DWph=1> <it=229> <et=104.92> <Mt= 3.90> <Spt= 8.24> <nCl= 41> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+Gap improvement since the last cut separation : 0 (-1680)
+----- Cut generation is stopped due to tailing off -----
+----------- Diving heuristic started -----------
+<DWph=2> <it=  1> <et=104.94> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=1> <it=  2> <et=104.95> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+---- Diving heuristic node with dive number = 0, fix depth = 1 and tabu list size = 0
+Fixed projected solution = [t_1_3_1_1_OspV=1, x_1_1_32_1_OspV=1, x_1_3_37_1_OspV=1, x_1_9_10_1_OspV=1, x_1_9_17_1_OspV=1, x_1_10_11_1_OspV=1, x_1_11_19_1_OspV=1, x_1_17_18_1_OspV=1, x_1_18_26_1_OspV=1, x_1_19_27_1_OspV=1, x_1_26_34_1_OspV=1, x_1_27_35_1_OspV=1, x_1_32_33_1_OspV=1, x_1_33_34_1_OspV=1, x_1_35_43_1_OspV=1, x_1_36_37_1_OspV=1, x_1_36_44_1_OspV=1, x_1_43_51_1_OspV=1, x_1_44_52_1_OspV=1, x_1_46_47_1_OspV=1, x_1_46_54_1_OspV=1, x_1_47_48_1_OspV=1, x_1_48_49_1_OspV=1, x_1_49_50_1_OspV=1, x_1_50_58_1_OspV=1, x_1_51_59_1_OspV=1, x_1_52_60_1_OspV=1, x_1_53_54_1_OspV=1, x_1_53_61_1_OspV=1, x_1_57_58_1_OspV=1, x_1_57_65_1_OspV=1, x_1_59_67_1_OspV=1, x_1_60_61_1_OspV=1, x_1_65_66_1_OspV=1, x_1_66_67_1_OspV=1, y_1_1_1_1_OspV=1]
+<DWph=2> <it= 10> <et=107.63> <Mt= 2.44> <Spt= 0.12> <nCl= 30> <DB=-1834.7212> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it= 20> <et=107.91> <Mt= 0.09> <Spt= 0.13> <nCl= 30> <DB=-1706.4698> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it= 30> <et=108.20> <Mt= 0.10> <Spt= 0.12> <nCl= 30> <DB=-1699.1953> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it= 40> <et=108.49> <Mt= 0.09> <Spt= 0.13> <nCl= 30> <DB=-1684.8837> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it= 50> <et=108.76> <Mt= 0.09> <Spt= 0.13> <nCl= 30> <DB=-1688.4714> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it= 60> <et=109.03> <Mt= 0.08> <Spt= 0.12> <nCl= 28> <DB=-1680.1639> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it= 70> <et=109.30> <Mt= 0.07> <Spt= 0.13> <nCl= 28> <DB=-1680.1043> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it= 80> <et=109.57> <Mt= 0.08> <Spt= 0.12> <nCl= 25> <DB=-1680.1093> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it= 90> <et=109.85> <Mt= 0.08> <Spt= 0.13> <nCl= 25> <DB=-1680.1801> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=100> <et=110.13> <Mt= 0.09> <Spt= 0.13> <nCl= 28> <DB=-1680.5070> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=110> <et=110.41> <Mt= 0.08> <Spt= 0.13> <nCl= 25> <DB=-1680.1170> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=120> <et=110.69> <Mt= 0.07> <Spt= 0.13> <nCl= 26> <DB=-1680.0450> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=130> <et=110.96> <Mt= 0.08> <Spt= 0.14> <nCl= 28> <DB=-1680.0993> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=140> <et=111.24> <Mt= 0.08> <Spt= 0.13> <nCl= 24> <DB=-1682.0960> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=150> <et=111.52> <Mt= 0.07> <Spt= 0.13> <nCl= 14> <DB=-1680.1093> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=160> <et=111.80> <Mt= 0.07> <Spt= 0.14> <nCl= 28> <DB=-1680.0795> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=170> <et=112.08> <Mt= 0.08> <Spt= 0.13> <nCl= 16> <DB=-1680.0348> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=180> <et=112.37> <Mt= 0.08> <Spt= 0.14> <nCl= 29> <DB=-1682.3414> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=190> <et=112.66> <Mt= 0.09> <Spt= 0.13> <nCl= 28> <DB=-1686.1959> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=200> <et=112.95> <Mt= 0.08> <Spt= 0.14> <nCl= 26> <DB=-1680.0695> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=210> <et=113.24> <Mt= 0.08> <Spt= 0.14> <nCl= 21> <DB=-1680.0248> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=220> <et=113.54> <Mt= 0.09> <Spt= 0.14> <nCl= 20> <DB=-1680.0149> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=230> <et=113.84> <Mt= 0.09> <Spt= 0.14> <nCl= 28> <DB=-1681.7679> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=240> <et=114.13> <Mt= 0.08> <Spt= 0.13> <nCl= 23> <DB=-1680.0888> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=250> <et=114.42> <Mt= 0.08> <Spt= 0.14> <nCl= 23> <DB=-1680.0298> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=260> <et=114.72> <Mt= 0.08> <Spt= 0.14> <nCl= 21> <DB=-1680.1244> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=270> <et=115.02> <Mt= 0.09> <Spt= 0.14> <nCl= 20> <DB=-1680.0397> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=280> <et=115.31> <Mt= 0.08> <Spt= 0.14> <nCl= 16> <DB=-1680.0099> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=290> <et=115.63> <Mt= 0.09> <Spt= 0.15> <nCl= 20> <DB=-1683.0754> <Mlp= -950.0000> <PB=-1679> 
+<DWph=2> <it=300> <et=115.95> <Mt= 0.10> <Spt= 0.16> <nCl= 24> <DB=-1734.4398> <Mlp=-1305.0000> <PB=-1679> 
+<DWph=2> <it=310> <et=116.30> <Mt= 0.12> <Spt= 0.15> <nCl= 30> <DB=-1689.3195> <Mlp=-1305.0000> <PB=-1679> 
+<DWph=2> <it=320> <et=116.70> <Mt= 0.15> <Spt= 0.16> <nCl= 25> <DB=-1682.6903> <Mlp=-1396.6667> <PB=-1679> 
+<DWph=2> <it=330> <et=117.14> <Mt= 0.19> <Spt= 0.18> <nCl= 28> <DB=-1681.9054> <Mlp=-1453.7500> <PB=-1679> 
+<DWph=2> <it=340> <et=117.58> <Mt= 0.18> <Spt= 0.17> <nCl= 27> <DB=-1708.1632> <Mlp=-1471.1190> <PB=-1679> 
+<DWph=2> <it=350> <et=117.97> <Mt= 0.14> <Spt= 0.17> <nCl= 30> <DB=-1687.4685> <Mlp=-1492.2222> <PB=-1679> 
+<DWph=2> <it=360> <et=118.41> <Mt= 0.16> <Spt= 0.20> <nCl= 21> <DB=-1679.0403> <Mlp=-1535.7624> <PB=-1679> 
+<DWph=2> <it=370> <et=118.88> <Mt= 0.13> <Spt= 0.23> <nCl= 24> <DB=-1696.7263> <Mlp=-1560.7075> <PB=-1679> 
+<DWph=2> <it=380> <et=119.36> <Mt= 0.18> <Spt= 0.20> <nCl= 26> <DB=-1700.5487> <Mlp=-1571.4614> <PB=-1679> 
+<DWph=2> <it=390> <et=119.81> <Mt= 0.15> <Spt= 0.20> <nCl= 27> <DB=-1754.2358> <Mlp=-1571.4614> <PB=-1679> 
+<DWph=2> <it=400> <et=120.27> <Mt= 0.17> <Spt= 0.21> <nCl= 26> <DB=-1685.6314> <Mlp=-1571.4614> <PB=-1679> 
+<DWph=2> <it=410> <et=120.75> <Mt= 0.17> <Spt= 0.21> <nCl= 25> <DB=-1673.9215> <Mlp=-1575.2270> <PB=-1679> 
+<DWph=2> <it=420> <et=121.24> <Mt= 0.18> <Spt= 0.22> <nCl= 26> <DB=-1685.2971> <Mlp=-1575.2270> <PB=-1679> 
+<DWph=2> <it=430> <et=121.76> <Mt= 0.19> <Spt= 0.22> <nCl= 17> <DB=-1660.0097> <Mlp=-1578.3177> <PB=-1679> 
+<DWph=2> <it=440> <et=122.46> <Mt= 0.36> <Spt= 0.25> <nCl= 22> <DB=-1834.3976> <Mlp=-1579.8462> <PB=-1679> 
+<DWph=2> <it=450> <et=123.46> <Mt= 0.63> <Spt= 0.26> <nCl= 24> <DB=-1649.9797> <Mlp=-1583.6855> <PB=-1679> 
+<DWph=2> <it=460> <et=124.15> <Mt= 0.31> <Spt= 0.27> <nCl= 18> <DB=-1654.5735> <Mlp=-1583.6855> <PB=-1679> 
+<DWph=2> <it=470> <et=124.92> <Mt= 0.37> <Spt= 0.29> <nCl= 21> <DB=-1623.6726> <Mlp=-1584.7567> <PB=-1679> 
+<DWph=2> <it=480> <et=125.48> <Mt= 0.16> <Spt= 0.28> <nCl= 16> <DB=-1628.3457> <Mlp=-1584.8939> <PB=-1679> 
+<DWph=2> <it=490> <et=127.17> <Mt= 1.28> <Spt= 0.30> <nCl= 24> <DB=-1671.7559> <Mlp=-1590.8478> <PB=-1679> 
+<DWph=2> <it=500> <et=128.04> <Mt= 0.46> <Spt= 0.29> <nCl= 17> <DB=-1639.8470> <Mlp=-1591.1182> <PB=-1679> 
+<DWph=2> <it=510> <et=128.71> <Mt= 0.26> <Spt= 0.29> <nCl= 21> <DB=-1637.3944> <Mlp=-1591.9042> <PB=-1679> 
+<DWph=2> <it=520> <et=129.90> <Mt= 0.77> <Spt= 0.30> <nCl= 21> <DB=-1632.9596> <Mlp=-1593.7294> <PB=-1679> 
+<DWph=2> <it=530> <et=130.68> <Mt= 0.36> <Spt= 0.30> <nCl= 24> <DB=-1772.6002> <Mlp=-1594.0929> <PB=-1679> 
+<DWph=2> <it=540> <et=132.18> <Mt= 1.07> <Spt= 0.31> <nCl= 23> <DB=-1620.4479> <Mlp=-1594.6837> <PB=-1679> 
+<DWph=2> <it=550> <et=133.09> <Mt= 0.44> <Spt= 0.33> <nCl= 23> <DB=-1608.7887> <Mlp=-1594.6837> <PB=-1679> 
+<DWph=2> <it=560> <et=134.00> <Mt= 0.45> <Spt= 0.33> <nCl= 18> <DB=-1611.7685> <Mlp=-1596.2594> <PB=-1679> 
+<DWph=2> <it=569> <et=134.67> <Mt= 0.32> <Spt= 0.25> <nCl= 12> <DB=-1633.1880> <Mlp=-1601.3710> <PB=-1679> 
+<DWph=1> <it=570> <et=134.81> <Mt= 0.01> <Spt= 0.12> <nCl=  3> <DB=-1693.7195> <Mlp=-1601.3710> <PB=-1679> 
+<DWph=1> <it=580> <et=137.07> <Mt= 0.89> <Spt= 1.24> <nCl= 30> <DB=-1676.0735> <Mlp=-1601.3710> <PB=-1679> 
+<DWph=1> <it=590> <et=139.00> <Mt= 0.54> <Spt= 1.27> <nCl= 26> <DB=-1660.4846> <Mlp=-1601.3710> <PB=-1679> 
+<DWph=1> <it=600> <et=142.11> <Mt= 1.70> <Spt= 1.27> <nCl= 22> <DB=-1652.0408> <Mlp=-1604.8087> <PB=-1679> 
+<DWph=1> <it=610> <et=144.13> <Mt= 0.60> <Spt= 1.31> <nCl= 24> <DB=-1652.4270> <Mlp=-1604.8087> <PB=-1679> 
+<DWph=1> <it=620> <et=145.89> <Mt= 0.47> <Spt= 1.15> <nCl= 19> <DB=-1638.3641> <Mlp=-1605.9409> <PB=-1679> 
+<DWph=1> <it=630> <et=147.95> <Mt= 0.65> <Spt= 1.28> <nCl= 21> <DB=-1642.7027> <Mlp=-1605.9409> <PB=-1679> 
+<DWph=1> <it=640> <et=149.51> <Mt= 0.15> <Spt= 1.28> <nCl= 19> <DB=-1647.8571> <Mlp=-1605.9409> <PB=-1679> 
+<DWph=1> <it=650> <et=151.75> <Mt= 0.81> <Spt= 1.29> <nCl= 16> <DB=-1646.3912> <Mlp=-1609.2031> <PB=-1679> 
+<DWph=1> <it=660> <et=155.51> <Mt= 2.31> <Spt= 1.30> <nCl= 17> <DB=-1643.9865> <Mlp=-1612.7505> <PB=-1679> 
+<DWph=1> <it=670> <et=159.45> <Mt= 2.25> <Spt= 1.56> <nCl= 21> <DB=-1633.3750> <Mlp=-1635.0000> <PB=-1679> 
+---- Diving heuristic node with dive number = 1, fix depth = 1 and tabu list size = 1
+Fixed projected solution = [t_1_2_1_1_OspV=1, x_1_1_32_1_OspV=1, x_1_2_39_1_OspV=1, x_1_4_5_1_OspV=1, x_1_4_12_1_OspV=1, x_1_5_6_1_OspV=1, x_1_6_7_1_OspV=1, x_1_7_8_1_OspV=1, x_1_8_9_1_OspV=1, x_1_9_10_1_OspV=1, x_1_10_11_1_OspV=1, x_1_11_19_1_OspV=1, x_1_12_13_1_OspV=1, x_1_13_14_1_OspV=1, x_1_14_15_1_OspV=1, x_1_15_16_1_OspV=1, x_1_16_17_1_OspV=1, x_1_17_18_1_OspV=1, x_1_18_26_1_OspV=1, x_1_19_27_1_OspV=1, x_1_26_34_1_OspV=1, x_1_27_35_1_OspV=1, x_1_32_33_1_OspV=1, x_1_33_34_1_OspV=1, x_1_35_43_1_OspV=1, x_1_39_47_1_OspV=1, x_1_43_51_1_OspV=1, x_1_47_48_1_OspV=1, x_1_48_49_1_OspV=1, x_1_49_57_1_OspV=1, x_1_51_59_1_OspV=1, x_1_57_66_1_OspV=1, x_1_59_67_1_OspV=1, x_1_66_67_1_OspV=1, y_1_1_1_1_OspV=1]
+<DWph=2> <it= 10> <et=162.60> <Mt= 2.61> <Spt= 0.15> <nCl= 30> <DB=-16393.2771> <Mlp=11075.0000> <PB=-1679> 
+<DWph=2> <it= 20> <et=162.91> <Mt= 0.07> <Spt= 0.16> <nCl= 30> <DB=-3649.8817> <Mlp=11075.0000> <PB=-1679> 
+<DWph=2> <it= 30> <et=163.22> <Mt= 0.07> <Spt= 0.15> <nCl= 30> <DB=-3502.6370> <Mlp=11075.0000> <PB=-1679> 
+<DWph=2> <it= 40> <et=163.52> <Mt= 0.07> <Spt= 0.15> <nCl= 30> <DB=-2022.9637> <Mlp=11075.0000> <PB=-1679> 
+<DWph=2> <it= 50> <et=163.82> <Mt= 0.05> <Spt= 0.15> <nCl= 30> <DB=-1680.1430> <Mlp=11075.0000> <PB=-1679> 
+<DWph=2> <it= 60> <et=164.13> <Mt= 0.07> <Spt= 0.17> <nCl= 30> <DB=-1686.2861> <Mlp= 4667.5000> <PB=-1679> 
+<DWph=2> <it= 70> <et=164.47> <Mt= 0.07> <Spt= 0.17> <nCl= 30> <DB=-1686.2215> <Mlp= 4667.5000> <PB=-1679> 
+<DWph=2> <it= 80> <et=164.82> <Mt= 0.08> <Spt= 0.18> <nCl= 30> <DB=-1693.6405> <Mlp= 1014.4118> <PB=-1679> 
+<DWph=2> <it= 90> <et=165.17> <Mt= 0.07> <Spt= 0.19> <nCl= 30> <DB=-1700.9330> <Mlp= -307.5000> <PB=-1679> 
+<DWph=2> <it=100> <et=165.54> <Mt= 0.07> <Spt= 0.20> <nCl= 22> <DB=-1680.4878> <Mlp=-1568.3801> <PB=-1679> 
+<DWph=2> <it=110> <et=165.89> <Mt= 0.06> <Spt= 0.19> <nCl= 10> <DB=-1680.1786> <Mlp=-1568.3801> <PB=-1679> 
+<DWph=2> <it=120> <et=166.25> <Mt= 0.06> <Spt= 0.20> <nCl= 10> <DB=-1680.1378> <Mlp=-1568.3801> <PB=-1679> 
+<DWph=2> <it=130> <et=166.61> <Mt= 0.07> <Spt= 0.20> <nCl= 10> <DB=-1680.2050> <Mlp=-1569.9639> <PB=-1679> 
+<DWph=2> <it=140> <et=166.99> <Mt= 0.08> <Spt= 0.20> <nCl= 10> <DB=-1680.5342> <Mlp=-1573.9639> <PB=-1679> 
+<DWph=2> <it=150> <et=167.37> <Mt= 0.08> <Spt= 0.20> <nCl= 10> <DB=-1680.3479> <Mlp=-1578.8340> <PB=-1679> 
+<DWph=2> <it=160> <et=167.79> <Mt= 0.10> <Spt= 0.21> <nCl= 10> <DB=-1680.1746> <Mlp=-1591.1328> <PB=-1679> 
+<DWph=2> <it=170> <et=168.18> <Mt= 0.09> <Spt= 0.20> <nCl= 10> <DB=-1680.0137> <Mlp=-1595.0624> <PB=-1679> 
+<DWph=2> <it=180> <et=168.56> <Mt= 0.08> <Spt= 0.21> <nCl= 10> <DB=-1680.0925> <Mlp=-1596.0971> <PB=-1679> 
+<DWph=2> <it=190> <et=168.97> <Mt= 0.10> <Spt= 0.20> <nCl= 10> <DB=-1680.1187> <Mlp=-1604.9763> <PB=-1679> 
+<DWph=2> <it=200> <et=169.36> <Mt= 0.08> <Spt= 0.20> <nCl= 10> <DB=-1680.0115> <Mlp=-1605.5975> <PB=-1679> 
+<DWph=2> <it=210> <et=169.74> <Mt= 0.07> <Spt= 0.21> <nCl= 10> <DB=-1680.1059> <Mlp=-1605.5975> <PB=-1679> 
+<DWph=2> <it=220> <et=170.14> <Mt= 0.10> <Spt= 0.21> <nCl= 10> <DB=-1680.0279> <Mlp=-1609.8216> <PB=-1679> 
+<DWph=2> <it=230> <et=170.53> <Mt= 0.08> <Spt= 0.20> <nCl= 10> <DB=-1680.0145> <Mlp=-1611.8142> <PB=-1679> 
+<DWph=2> <it=240> <et=170.95> <Mt= 0.11> <Spt= 0.21> <nCl= 10> <DB=-1680.0416> <Mlp=-1613.8497> <PB=-1679> 
+<DWph=2> <it=250> <et=171.36> <Mt= 0.10> <Spt= 0.21> <nCl= 10> <DB=-1680.0058> <Mlp=-1614.7629> <PB=-1679> 
+<DWph=2> <it=260> <et=171.78> <Mt= 0.10> <Spt= 0.22> <nCl= 10> <DB=-1668.7525> <Mlp=-1616.0819> <PB=-1679> 
+<DWph=2> <it=270> <et=172.25> <Mt= 0.13> <Spt= 0.22> <nCl= 10> <DB=-1655.1434> <Mlp=-1622.0687> <PB=-1679> 
+<DWph=2> <it=280> <et=172.78> <Mt= 0.12> <Spt= 0.27> <nCl= 10> <DB=-1642.6441> <Mlp=-1624.7978> <PB=-1679> 
+<DWph=2> <it=290> <et=173.24> <Mt= 0.12> <Spt= 0.24> <nCl= 10> <DB=-1636.8200> <Mlp=-1627.6509> <PB=-1679> 
+<DWph=2> <it=300> <et=173.75> <Mt= 0.11> <Spt= 0.26> <nCl= 10> <DB=-1640.2006> <Mlp=-1630.3204> <PB=-1679> 
+<DWph=2> <it=310> <et=174.28> <Mt= 0.12> <Spt= 0.27> <nCl= 10> <DB=-1659.2956> <Mlp=-1632.6325> <PB=-1679> 
+<DWph=2> <it=311> <et=174.30> <Mt= 0.02> <Spt= 0.00> <nCl=  0> <DB=-1659.2956> <Mlp=-1632.7672> <PB=-1679> 
+<DWph=1> <it=320> <et=175.48> <Mt= 0.12> <Spt= 0.95> <nCl=  9> <DB=-1665.8673> <Mlp=-1634.4601> <PB=-1679> 
+<DWph=1> <it=330> <et=176.81> <Mt= 0.12> <Spt= 1.08> <nCl= 10> <DB=-1651.8249> <Mlp=-1636.2621> <PB=-1679> 
+<DWph=1> <it=340> <et=178.34> <Mt= 0.16> <Spt= 1.23> <nCl= 10> <DB=-1648.7969> <Mlp=-1639.4020> <PB=-1679> 
+<DWph=1> <it=350> <et=179.99> <Mt= 0.09> <Spt= 1.39> <nCl= 10> <DB=-1658.4370> <Mlp=-1639.8455> <PB=-1679> 
+<DWph=1> <it=360> <et=181.41> <Mt= 0.12> <Spt= 1.16> <nCl= 10> <DB=-1651.3014> <Mlp=-1640.6524> <PB=-1679> 
+<DWph=1> <it=370> <et=183.01> <Mt= 0.13> <Spt= 1.31> <nCl= 10> <DB=-1649.0031> <Mlp=-1641.1983> <PB=-1679> 
+<DWph=1> <it=380> <et=184.68> <Mt= 0.11> <Spt= 1.40> <nCl= 10> <DB=-1670.4425> <Mlp=-1642.2849> <PB=-1679> 
+<DWph=1> <it=390> <et=186.26> <Mt= 0.13> <Spt= 1.29> <nCl= 10> <DB=-1648.2577> <Mlp=-1643.9804> <PB=-1679> 
+<DWph=1> <it=400> <et=187.85> <Mt= 0.10> <Spt= 1.34> <nCl= 10> <DB=-1653.9800> <Mlp=-1644.0863> <PB=-1679> 
+<DWph=1> <it=410> <et=189.69> <Mt= 0.10> <Spt= 1.54> <nCl= 10> <DB=-1667.9196> <Mlp=-1644.5406> <PB=-1679> 
+<DWph=1> <it=418> <et=190.90> <Mt= 0.13> <Spt= 0.97> <nCl=  7> <DB=-1665.5646> <Mlp=-1646.1539> <PB=-1679> 
+**** Strong branching phase 1 is started *****
+SB phase 1 cand.  1 branch on y_3_2 (lhs=0.5239): [-1641.8372, -1640.8059], score = 1495.76      <et=197.84>
+SB phase 1 cand.  2 branch on y_2_2 (lhs=0.2521): [-1674.9946, -1618.7102], score = 306.78      <et=204.76>
+SB phase 1 cand.  3 branch on y_1_2 (lhs=0.2241): [-1678.3911, -1603.0137], score = 123.86      <et=213.1>
+SB phase 1 cand.  4 branch on t_3_1 (lhs=0.5239): [-1641.8372, -1640.8059], score = 1495.76      <et=220.06>
+SB phase 1 cand.  5 branch on t_2_1 (lhs=0.2521): [-1674.9946, -1618.7102], score = 306.78      <et=227.95>
+**** Strong branching phase 2 is started *****
+<DWph=1> <it=169> <et=295.37> <Mt=18.78> <Spt=37.95> <nCl=602> <DB=-1687.3200> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=1> <it=292> <et=366.36> <Mt=23.32> <Spt=42.19> <nCl=860> <DB=-1683.9630> <Mlp=-1680.0000> <PB=-1679> 
+SB phase 2 cand.  1 branch on y_3_2 (lhs=0.5239): [-1680.0000, -1680.0000], score = 0.00      <et=366.37>
+<DWph=1> <it=253> <et=489.89> <Mt=22.79> <Spt=94.18> <nCl=726> <DB=-1681.5322> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=1> <it=136> <et=518.60> <Mt=10.75> <Spt=14.20> <nCl=431> <DB=-1686.2127> <Mlp=-1680.0000> <PB=-1679> 
+SB phase 2 cand.  2 branch on t_2_1 (lhs=0.2521): [-1680.0000, -1680.0000], score = 0.00      <et=518.61>
+<DWph=1> <it=324> <et=684.06> <Mt=28.71> <Spt=125.40> <nCl=907> <DB=-1681.7946> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=1> <it= 82> <et=699.82> <Mt= 5.77> <Spt= 7.33> <nCl=262> <DB=-1682.4416> <Mlp=-1680.0000> <PB=-1679> 
+SB phase 2 cand.  3 branch on y_1_2 (lhs=0.2241): [-1680.0000, -1680.0000], score = 0.00      <et=699.83>
+**** Strong branching phase 3 is started *****
+**** SB phase 3 evaluation of candidate 1, branch 1 ( y_3_2 <= 0 ), value = -1680
+<DWph=2> <it=  1> <et=699.99> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=1> <it=  2> <et=700.00> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=0> <it=  3> <et=700.01> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+----- Add fac. cuts : R1C(188), max.viol = 0.330125, aver.viol = 0.177059, sep/add took 0.02/0.73 sec. -----
+12285 columns (6087 active), 667 dyn. constrs. (662 active), 938 art. vars. (933 active)
+<DWph=2> <it= 10> <et=708.63> <Mt= 5.35> <Spt= 1.94> <nCl= 29> <DB=-1682.8343> <Mlp=-1663.1597> <PB=-1679> 
+<DWph=2> <it= 20> <et=713.82> <Mt= 2.31> <Spt= 2.28> <nCl= 22> <DB=-1666.4633> <Mlp=-1665.8314> <PB=-1679> 
+<DWph=2> <it= 27> <et=716.27> <Mt= 0.86> <Spt= 1.26> <nCl= 15> <DB=-1676.7791> <Mlp=-1666.2838> <PB=-1679> 
+<DWph=1> <it= 30> <et=720.57> <Mt= 0.93> <Spt= 3.19> <nCl= 15> <DB=-1718.9514> <Mlp=-1667.5007> <PB=-1679> 
+<DWph=1> <it= 40> <et=737.70> <Mt= 5.61> <Spt=10.94> <nCl= 42> <DB=-1708.9558> <Mlp=-1672.9833> <PB=-1679> 
+<DWph=1> <it= 50> <et=755.41> <Mt= 5.30> <Spt=11.81> <nCl= 40> <DB=-1696.1438> <Mlp=-1676.3362> <PB=-1679> 
+<DWph=1> <it= 60> <et=771.05> <Mt= 2.39> <Spt=12.63> <nCl= 39> <DB=-1692.6623> <Mlp=-1677.5100> <PB=-1679> 
+<DWph=1> <it= 70> <et=787.05> <Mt= 2.12> <Spt=13.24> <nCl= 36> <DB=-1687.8398> <Mlp=-1678.3537> <PB=-1679> 
+<DWph=1> <it= 80> <et=802.33> <Mt= 1.67> <Spt=12.98> <nCl= 31> <DB=-1689.2499> <Mlp=-1678.8975> <PB=-1679> 
+<DWph=1> <it= 90> <et=818.05> <Mt= 1.83> <Spt=13.24> <nCl= 34> <DB=-1683.9287> <Mlp=-1679.4765> <PB=-1679> 
+<DWph=1> <it=100> <et=835.12> <Mt= 2.71> <Spt=13.69> <nCl= 36> <DB=-1685.3171> <Mlp=-1679.8704> <PB=-1679> 
+<DWph=1> <it=106> <et=843.77> <Mt= 1.40> <Spt= 6.91> <nCl= 16> <DB=-1682.9720> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=0> <it=107> <et=843.78> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+Gap improvement since the last cut separation : -4.54743e-13 (-1680)
+----- Add fac. cuts : R1C(184), max.viol = 0.302254, aver.viol = 0.158289, sep/add took 0.65/0.9 sec. -----
+12886 columns (6688 active), 851 dyn. constrs. (846 active), 1122 art. vars. (1117 active)
+<DWph=2> <it= 10> <et=864.17> <Mt=14.75> <Spt= 3.35> <nCl= 33> <DB=-1692.1530> <Mlp=-1670.0308> <PB=-1679> 
+<DWph=2> <it= 17> <et=867.94> <Mt= 0.88> <Spt= 2.37> <nCl= 17> <DB=-1662.5100> <Mlp=-1670.3226> <PB=-1679> 
+<DWph=1> <it= 20> <et=875.81> <Mt= 2.32> <Spt= 5.32> <nCl= 11> <DB=-1723.2242> <Mlp=-1671.6349> <PB=-1679> 
+<DWph=1> <it= 30> <et=899.58> <Mt= 6.43> <Spt=16.63> <nCl= 37> <DB=-1703.3664> <Mlp=-1674.7021> <PB=-1679> 
+<DWph=1> <it= 40> <et=924.35> <Mt= 7.49> <Spt=16.58> <nCl= 31> <DB=-1692.4759> <Mlp=-1676.4368> <PB=-1679> 
+<DWph=1> <it= 50> <et=945.83> <Mt= 4.91> <Spt=15.89> <nCl= 37> <DB=-1695.3826> <Mlp=-1677.5100> <PB=-1679> 
+<DWph=1> <it= 60> <et=967.32> <Mt= 5.43> <Spt=15.36> <nCl= 34> <DB=-1687.4870> <Mlp=-1678.4263> <PB=-1679> 
+<DWph=1> <it= 70> <et=987.32> <Mt= 4.62> <Spt=14.71> <nCl= 32> <DB=-1685.6707> <Mlp=-1679.0434> <PB=-1679> 
+<DWph=1> <it= 80> <et=1008.03> <Mt= 4.86> <Spt=15.14> <nCl= 34> <DB=-1684.7451> <Mlp=-1679.4057> <PB=-1679> 
+<DWph=1> <it= 90> <et=1026.50> <Mt= 2.53> <Spt=15.24> <nCl= 31> <DB=-1683.2063> <Mlp=-1679.5497> <PB=-1679> 
+<DWph=1> <it=100> <et=1046.82> <Mt= 4.14> <Spt=15.46> <nCl= 31> <DB=-1682.4921> <Mlp=-1679.7398> <PB=-1679> 
+<DWph=1> <it=110> <et=1066.77> <Mt= 3.69> <Spt=15.55> <nCl= 32> <DB=-1683.0562> <Mlp=-1679.9016> <PB=-1679> 
+<DWph=1> <it=117> <et=1078.76> <Mt= 2.11> <Spt= 9.43> <nCl= 16> <DB=-1682.7742> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=0> <it=118> <et=1078.79> <Mt= 0.03> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+Gap improvement since the last cut separation : 2.27371e-13 (-1680)
+----- Add fac. cuts : R1C(178), max.viol = 0.250715, aver.viol = 0.132487, sep/add took 1.07/0.91 sec. -----
+13533 columns (7335 active), 1029 dyn. constrs. (1024 active), 1300 art. vars. (1295 active)
+<DWph=2> <it=  1> <et=1090.99> <Mt= 9.75> <Spt= 0.37> <nCl=  1> <DB=-1672.5354> <Mlp=-1675.0401> <PB=-1679> 
+<DWph=1> <it= 10> <et=1125.01> <Mt=14.59> <Spt=18.72> <nCl= 34> <DB=-1696.7666> <Mlp=-1677.2930> <PB=-1679> 
+<DWph=1> <it= 20> <et=1154.58> <Mt= 8.02> <Spt=20.74> <nCl= 33> <DB=-1687.7745> <Mlp=-1678.0091> <PB=-1679> 
+<DWph=1> <it= 30> <et=1183.27> <Mt= 7.07> <Spt=20.80> <nCl= 30> <DB=-1687.9545> <Mlp=-1678.5295> <PB=-1679> 
+<DWph=1> <it= 40> <et=1212.46> <Mt= 7.46> <Spt=20.90> <nCl= 32> <DB=-1684.7560> <Mlp=-1679.0253> <PB=-1679> 
+<DWph=1> <it= 50> <et=1249.84> <Mt=15.36> <Spt=21.18> <nCl= 31> <DB=-1685.3874> <Mlp=-1679.3096> <PB=-1679> 
+<DWph=1> <it= 60> <et=1281.25> <Mt= 9.30> <Spt=21.26> <nCl= 32> <DB=-1685.1825> <Mlp=-1679.5665> <PB=-1679> 
+<DWph=1> <it= 70> <et=1311.78> <Mt= 8.27> <Spt=21.41> <nCl= 31> <DB=-1683.4085> <Mlp=-1679.7745> <PB=-1679> 
+<DWph=1> <it= 80> <et=1340.67> <Mt= 4.17> <Spt=23.75> <nCl= 28> <DB=-1682.6989> <Mlp=-1679.8715> <PB=-1679> 
+<DWph=0> <it= 91> <et=1407.16> <Mt=47.13> <Spt=18.58> <nCl= 24> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+Gap improvement since the last cut separation : 0 (-1680)
+----- Add fac. cuts : R1C(316), max.viol = 0.266819, aver.viol = 0.160666, sep/add took 1.33/1.95 sec. -----
+14034 columns (7836 active), 1345 dyn. constrs. (1340 active), 1616 art. vars. (1611 active)
+<DWph=2> <it=  4> <et=1491.40> <Mt=79.26> <Spt= 1.39> <nCl= 11> <DB=-1718.3690> <Mlp=-1671.9916> <PB=-1679> 
+<DWph=1> <it=  7> <et=1511.13> <Mt=14.22> <Spt= 5.32> <nCl= 11> <DB=-1731.8485> <Mlp=-1673.8457> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+----- Column generation is interrupted by the pricing solver, we do rollback to the point before the latest cut generation round
+**** SB phase 3 evaluation of candidate 1, branch 2 ( y_3_2 >= 1 ), value = -1680
+<DWph=2> <it=  1> <et=1511.70> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=1> <it=  2> <et=1511.71> <Mt= 0.02> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=0> <it=  3> <et=1511.73> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+----- Add fac. cuts : R1C(187), max.viol = 0.303365, aver.viol = 0.165033, sep/add took 0.03/0.9 sec. -----
+9500 columns (6733 active), 1528 dyn. constrs. (661 active), 1799 art. vars. (932 active)
+<DWph=2> <it= 10> <et=1527.69> <Mt=12.55> <Spt= 2.04> <nCl= 44> <DB=-1681.0403> <Mlp=-1667.2920> <PB=-1679> 
+<DWph=2> <it= 20> <et=1533.82> <Mt= 3.27> <Spt= 2.37> <nCl= 27> <DB=-1678.3607> <Mlp=-1670.4625> <PB=-1679> 
+<DWph=2> <it= 30> <et=1538.50> <Mt= 1.89> <Spt= 2.33> <nCl= 20> <DB=-1681.5076> <Mlp=-1671.7818> <PB=-1679> 
+<DWph=2> <it= 40> <et=1544.07> <Mt= 2.47> <Spt= 2.59> <nCl= 21> <DB=-1685.5102> <Mlp=-1673.0121> <PB=-1679> 
+<DWph=2> <it= 44> <et=1546.19> <Mt= 1.26> <Spt= 0.72> <nCl=  5> <DB=-1681.1542> <Mlp=-1673.8606> <PB=-1679> 
+<DWph=1> <it= 50> <et=1556.84> <Mt= 3.83> <Spt= 6.52> <nCl= 24> <DB=-1700.0336> <Mlp=-1676.3174> <PB=-1679> 
+<DWph=1> <it= 60> <et=1573.85> <Mt= 5.22> <Spt=11.29> <nCl= 36> <DB=-1691.0813> <Mlp=-1678.0169> <PB=-1679> 
+<DWph=1> <it= 70> <et=1589.90> <Mt= 3.70> <Spt=11.83> <nCl= 46> <DB=-1685.8780> <Mlp=-1678.8857> <PB=-1679> 
+<DWph=1> <it= 80> <et=1604.32> <Mt= 2.16> <Spt=11.71> <nCl= 33> <DB=-1685.4461> <Mlp=-1679.1734> <PB=-1679> 
+<DWph=1> <it= 90> <et=1618.80> <Mt= 2.19> <Spt=11.75> <nCl= 39> <DB=-1684.8186> <Mlp=-1679.3981> <PB=-1679> 
+<DWph=1> <it=100> <et=1633.46> <Mt= 2.24> <Spt=11.85> <nCl= 28> <DB=-1683.1356> <Mlp=-1679.6061> <PB=-1679> 
+<DWph=1> <it=110> <et=1648.40> <Mt= 1.97> <Spt=12.41> <nCl= 28> <DB=-1682.8290> <Mlp=-1679.7735> <PB=-1679> 
+<DWph=1> <it=120> <et=1664.52> <Mt= 2.90> <Spt=12.65> <nCl= 30> <DB=-1682.4199> <Mlp=-1679.9698> <PB=-1679> 
+<DWph=1> <it=124> <et=1669.37> <Mt= 0.84> <Spt= 3.84> <nCl=  7> <DB=-1683.0052> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=0> <it=125> <et=1669.39> <Mt= 0.02> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+Gap improvement since the last cut separation : 0 (-1680)
+----- Add fac. cuts : R1C(302), max.viol = 0.372152, aver.viol = 0.19065, sep/add took 0.84/1.73 sec. -----
+10204 columns (7437 active), 1830 dyn. constrs. (963 active), 2101 art. vars. (1234 active)
+<DWph=2> <it= 10> <et=1703.15> <Mt=27.02> <Spt= 3.54> <nCl= 44> <DB=-1685.9289> <Mlp=-1675.3379> <PB=-1679> 
+<DWph=2> <it= 15> <et=1707.26> <Mt= 2.01> <Spt= 1.78> <nCl= 12> <DB=-1675.5085> <Mlp=-1675.7449> <PB=-1679> 
+<DWph=1> <it= 20> <et=1723.66> <Mt= 7.67> <Spt= 8.41> <nCl= 26> <DB=-1698.3431> <Mlp=-1676.5649> <PB=-1679> 
+<DWph=1> <it= 30> <et=1751.11> <Mt=10.64> <Spt=16.19> <nCl= 40> <DB=-1689.6170> <Mlp=-1678.0203> <PB=-1679> 
+<DWph=1> <it= 40> <et=1773.25> <Mt= 6.09> <Spt=15.43> <nCl= 39> <DB=-1687.1417> <Mlp=-1678.5183> <PB=-1679> 
+<DWph=1> <it= 50> <et=1795.51> <Mt= 6.44> <Spt=15.19> <nCl= 28> <DB=-1685.0683> <Mlp=-1678.8894> <PB=-1679> 
+<DWph=1> <it= 60> <et=1820.03> <Mt= 8.18> <Spt=15.71> <nCl= 27> <DB=-1684.1757> <Mlp=-1679.2616> <PB=-1679> 
+<DWph=1> <it= 70> <et=1845.71> <Mt= 8.80> <Spt=16.20> <nCl= 34> <DB=-1681.9398> <Mlp=-1679.5833> <PB=-1679> 
+<DWph=1> <it= 80> <et=1864.70> <Mt= 2.91> <Spt=15.43> <nCl= 21> <DB=-1681.2955> <Mlp=-1679.6352> <PB=-1679> 
+<DWph=1> <it= 90> <et=1885.06> <Mt= 3.74> <Spt=15.98> <nCl= 21> <DB=-1681.6976> <Mlp=-1679.6985> <PB=-1679> 
+<DWph=1> <it=100> <et=1906.69> <Mt= 4.59> <Spt=16.39> <nCl= 25> <DB=-1681.3123> <Mlp=-1679.7738> <PB=-1679> 
+<DWph=1> <it=110> <et=1928.66> <Mt= 5.09> <Spt=16.20> <nCl= 21> <DB=-1681.6649> <Mlp=-1679.8244> <PB=-1679> 
+<DWph=1> <it=120> <et=1951.69> <Mt= 5.72> <Spt=16.64> <nCl= 23> <DB=-1681.3502> <Mlp=-1679.8967> <PB=-1679> 
+<DWph=1> <it=130> <et=1973.64> <Mt= 4.26> <Spt=17.00> <nCl= 22> <DB=-1681.2086> <Mlp=-1679.9302> <PB=-1679> 
+<DWph=1> <it=140> <et=1994.80> <Mt= 3.81> <Spt=16.65> <nCl= 21> <DB=-1680.9555> <Mlp=-1679.9642> <PB=-1679> 
+<DWph=1> <it=150> <et=2015.31> <Mt= 4.48> <Spt=15.32> <nCl= 24> <DB=-1681.9143> <Mlp=-1679.9937> <PB=-1679> 
+<DWph=1> <it=153> <et=2019.47> <Mt= 1.05> <Spt= 2.97> <nCl=  6> <DB=-1681.8187> <Mlp=-1680.0000> <PB=-1679> 
+<DWph=0> <it=154> <et=2019.50> <Mt= 0.03> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1680.0000> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+Gap improvement since the last cut separation : 0 (-1680)
+----- Add fac. cuts : R1C(171), max.viol = 0.266612, aver.viol = 0.124507, sep/add took 1.28/1.05 sec. -----
+11039 columns (8272 active), 2001 dyn. constrs. (1134 active), 2272 art. vars. (1405 active)
+<DWph=2> <it=  6> <et=2071.33> <Mt=46.49> <Spt= 2.54> <nCl= 22> <DB=-1676.0776> <Mlp=-1676.9241> <PB=-1679> 
+<DWph=1> <it= 10> <et=2083.37> <Mt= 3.56> <Spt= 8.17> <nCl= 17> <DB=-1695.4653> <Mlp=-1677.3458> <PB=-1679> 
+<DWph=1> <it= 19> <et=2112.14> <Mt=11.27> <Spt=16.87> <nCl= 29> <DB=-1690.3329> <Mlp=-1678.2350> <PB=-1679> 
+ColGenEvalAlg final dual bound: -1680 (rounded: -1680)
+----- Column generation is interrupted by the pricing solver, we do rollback to the point before the latest cut generation round
+SB exact phase 3 branch on y_3_2 (lhs=0.523878) : [-1680, -1680], tree depth = 1e+12, tree size = 1e+12, score = -1e+12
+************************************************************************************************
+**** BaB tree node (N° 2, parent N° 1, depth 1)
+**** Local DB = -1680, global bounds : [ -1680 , -1679 ], TIME = 0h35m12s48t = 211248
+**** 2 open nodes, 11114 columns (8377 active), 1685 dyn. constrs. (1134 active), 1956 art. vars. (1405 active)
+************************************************************************************************
+**** Strong branching phase 1 is started *****
+SB phase 1 cand.  1 branch on t_2_1 (lhs=0.4853): [-1675.7321, -1661.8022], score = 77.67 (h)  <et=2173.67>
+SB phase 1 cand.  2 branch on y_1_2 (lhs=0.5147): [-1675.7321, -1661.8022], score = 77.67 (h)  <et=2235.9>
+SB phase 1 cand.  3 branch on y_2_2 (lhs=0.4853): [-1675.7321, -1661.8022], score = 77.67 (h)  <et=2298.29>
+SB phase 1 cand.  4 branch on t_1_1 (lhs=0.5147): [-1675.7321, -1661.8022], score = 77.67 (h)  <et=2360.57>
+**** Strong branching phase 2 is started *****
+<DWph=1> <it=288> <et=3110.26> <Mt=224.54> <Spt=503.96> <nCl=631> <DB=-1679.1929> <Mlp=-1679.7568> <PB=-1679> 
+<DWph=1> <it=134> <et=3425.85> <Mt=90.90> <Spt=213.10> <nCl=337> <DB=-1680.4532> <Mlp=-1680.0000> <PB=-1680> 
+SB phase 2 cand.  1 branch on t_1_1 (lhs=0.5147): [-1680.0000, -1679.7568], score = 0.00 (h)  <et=3425.87>
+<DWph=1> <it=  1> <et=3426.00> <Mt= 0.03> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1661.8022> <PB=-1680> 
+<DWph=1> <it=  1> <et=3426.23> <Mt= 0.03> <Spt= 0.00> <nCl=  0> <DB=-1680.0000> <Mlp=-1675.7321> <PB=-1680> 
+ SB phase 2 candidate 2 is conquered !
+**** Strong branching phase 3 is started *****
+**** SB phase 3 evaluation of candidate 1, branch 1 ( t_2_1 <= 0 ), value = -1661.8
+**** SB phase 3 evaluation of candidate 1, branch 2 ( t_2_1 >= 1 ), value = -1675.73
+ SB phase 3 candidate 1 is conquered !
+New model incumbent solution -1680, TIME = 0h57m6s25t = 342625
+************************************************************************************************
+Search is finished, global bounds : [ -1680 , -1680 ], TIME = 0h57m6s25t = 342625
+************************************************************************************************
+[32mBaPCod : solution defined.[00m
+statistics_cols: instance & :Optimal & cutoff & :bcRecRootDb & :bcTimeRootEval & :bcCountNodeProc & :bcRecBestDb & :bcRecBestInc & :bcTimeMain \\
+statistics: 66-130-1-2 & 1 & -1678.99999 & -1680.00 & 104.94 & 5 & -1680.00 & -1680 & 3426.25 \\
+########################################################
+trip 1 : 1 31 30 22 14 13 21 29 28 20 12 4 5 6 7 15 23 24 16 8 9 10 11 19 18 17 25 26 27 35 34 33 32 2 
+trip 2 : 2 39 38 37 36 44 52 60 61 62 63 64 65 66 67 59 51 43 42 50 58 57 56 55 54 53 45 46 47 48 49 41 40 2 
+tour : 1 31 30 22 14 13 21 29 28 20 12 4 5 6 7 15 23 24 16 8 9 10 11 19 18 17 25 26 27 35 34 33 32 2 39 38 37 36 44 52 60 61 62 63 64 65 66 67 59 51 43 42 50 58 57 56 55 54 53 45 46 47 48 49 41 40 2
+Cost 1680.0
+########################################################

@@ -1,0 +1,233 @@
+Application parameters:
+  batch  =>  nothing
+  tikz  =>  "/TIKZ/64-65-5-3.tex"
+  instance  =>  "/IN/64-65-5-3.ophs"
+  out  =>  "/OUT/64-65-5-3.sol"
+  nosolve  =>  false
+  ub  =>  -1116
+  complete  =>  false
+  cfg  =>  "/BWTSP/src/../config/OPHS.cfg"
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+[41m solve [00m
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver v0.4.1, 24/03/2021. Web: vrpsolver.math.u-bordeaux.fr
+Corresponds to the solver by Pessoa, Sadykov, Uchoa and Vanderbeck (2020)
+Paper: dx.doi.org/10.1007/s10107-020-01523-z
+USE THIS CODE ONLY FOR ACADEMIC PURPOSES AT YOUR OWN RISK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BaPCod v053, 24/03/2021, © Inria Bordeaux, France
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver parameters:
+GlobalTimeLimit = 18000
+MaxNbOfBBtreeNodeTreated = 100000
+treeSearchStrategy = 1
+RCSPstopCutGenTimeThresholdInPricing = 10
+RCSPhardTimeThresholdInPricing = 25
+RCSPnumberOfBucketsPerVertex = 25
+RCSPdynamicBucketSteps = 1
+RCSPuseBidirectionalSearch = 2
+RCSPapplyReducedCostFixing = 1
+RCSPredCostFixingFalseGap = 0
+RCSPmaxNumOfColsPerIteration = 30
+RCSPmaxNumOfColsPerExactIteration = 150
+RCSPheurLabelingStrategy = 0
+StabilizationMinPhaseOfStage = 0
+RCSPmaxNumOfLabelsInEnumeration = 0
+RCSPmaxNumOfEnumeratedSolutions = 0
+RCSPmaxNumOfEnumSolutionsForMIP = 10000
+RCSPinitNGneighbourhoodSize = 8
+RCSPmaxNGneighbourhoodSize = 8
+RCSPrankOneCutsMaxNumPerRound = 100
+RCSPrankOneCutsMaxNumRows = 5
+RCSPrankOneCutsMemoryType = 0
+CutTailingOffThreshold = 0.015
+CutTailingOffCounterThreshold = 3
+SafeDualBoundScaleFactor = -1
+StrongBranchingPhaseOneCandidatesNumber = 100
+StrongBranchingPhaseOneTreeSizeEstimRatio = 0.2
+StrongBranchingPhaseTwoCandidatesNumber = 3
+StrongBranchingPhaseTwoTreeSizeEstimRatio = 0.02
+MaxTimeForRestrictedMasterIpHeur = -1
+DivingHeurUseDepthLimit = 0
+MaxLDSbreadth = 1
+MaxLDSdepth = 10000
+New model incumbent solution -1115, TIME = 0h0m0s2t = 2
+Model is built TIME = 0h0m0s91t = 91
+************************************************************************************************
+**** BaB tree root node
+**** Local DB = -1e+12, global bounds : [ -1e+12 , -1115 ], TIME = 0h0m0s91t = 91
+**** 1 open nodes, 0 columns (0 active), 0 dyn. constrs. (0 active), 287 art. vars. (287 active)
+************************************************************************************************
+--------------------------------------------------------------------------
+BaPCod info : first we run the root node with rank-1 cuts with node memory
+--------------------------------------------------------------------------
+<DWph=2> <it= 10> <et=1.06> <Mt= 0.00> <Spt= 0.13> <nCl=198> <DB=-1412.5486> <Mlp=-1060.0578> <PB=-1115> 
+<DWph=2> <it= 20> <et=1.21> <Mt= 0.01> <Spt= 0.13> <nCl=165> <DB=-1167.3364> <Mlp=-1132.5699> <PB=-1115> 
+<DWph=2> <it= 23> <et=1.27> <Mt= 0.01> <Spt= 0.06> <nCl= 27> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=1> <it= 25> <et=1.36> <Mt= 0.00> <Spt= 0.08> <nCl=  1> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=0> <it= 26> <et=1.51> <Mt= 0.00> <Spt= 0.15> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+Reduced cost fixing for graph G_3... took 0.04 sec., 14874 buck. arcs remain (21.3% from prev., 7.56% from max.)
+Reduced cost fixing for graph G_2... took 0.05 sec., 13734 buck. arcs remain (19% from prev., 6.98% from max.)
+Reduced cost fixing for graph G_1... took 0.04 sec., 9968 buck. arcs remain (13.6% from prev., 5.06% from max.)
+ColGenEvalAlg final dual bound: -1134 (rounded: -1134)
+----- Add fac. cuts : R1C(173), max.viol = 0.376326, aver.viol = 0.201293, sep/add took 0/0.04 sec. -----
+1017 columns (1017 active), 173 dyn. constrs. (173 active), 460 art. vars. (460 active)
+<DWph=2> <it=  6> <et=1.91> <Mt= 0.11> <Spt= 0.09> <nCl= 79> <DB=-1158.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=1> <it=  7> <et=1.94> <Mt= 0.00> <Spt= 0.02> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=0> <it=  8> <et=1.94> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1134 (rounded: -1134)
+Gap improvement since the last cut separation : 3.59011e-14 (-1134)
+----- Add fac. cuts : R1C(310), max.viol = 0.462719, aver.viol = 0.218219, sep/add took 0.45/0.11 sec. -----
+1107 columns (1107 active), 483 dyn. constrs. (483 active), 770 art. vars. (770 active)
+<DWph=2> <it= 10> <et=3.60> <Mt= 0.85> <Spt= 0.21> <nCl= 99> <DB=-1140.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=1> <it= 12> <et=3.64> <Mt= 0.01> <Spt= 0.04> <nCl=  1> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=0> <it= 13> <et=3.64> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1134 (rounded: -1134)
+Gap improvement since the last cut separation : 1.31637e-13 (-1134)
+----- Add fac. cuts : R1C(323), max.viol = 0.297758, aver.viol = 0.12218, sep/add took 0.69/0.15 sec. -----
+1256 columns (1256 active), 806 dyn. constrs. (806 active), 1093 art. vars. (1093 active)
+<DWph=2> <it= 10> <et=7.17> <Mt= 2.41> <Spt= 0.25> <nCl= 87> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=1> <it= 11> <et=7.21> <Mt= 0.00> <Spt= 0.03> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=0> <it= 12> <et=7.21> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1134 (rounded: -1134)
+Gap improvement since the last cut separation : -5.98351e-14 (-1134)
+----- Add fac. cuts : R1C(315), max.viol = 0.226151, aver.viol = 0.0857549, sep/add took 0.79/0.16 sec. -----
+1378 columns (1378 active), 1121 dyn. constrs. (1121 active), 1408 art. vars. (1408 active)
+<DWph=2> <it= 10> <et=14.10> <Mt= 5.56> <Spt= 0.34> <nCl=101> <DB=-1135.3783> <Mlp=-1133.7494> <PB=-1115> 
+<DWph=2> <it= 14> <et=14.75> <Mt= 0.48> <Spt= 0.14> <nCl= 20> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=1> <it= 15> <et=14.80> <Mt= 0.01> <Spt= 0.05> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=0> <it= 16> <et=14.81> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1134 (rounded: -1134)
+Gap improvement since the last cut separation : 5.98351e-14 (-1134)
+----- Cut generation is stopped due to tailing off -----
+----------- Diving heuristic started -----------
+<DWph=2> <it=  1> <et=14.82> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=1> <it=  2> <et=14.83> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+---- Diving heuristic node with dive number = 0, fix depth = 1 and tabu list size = 0
+Fixed projected solution = [t_2_6_2_2_OspV=1, x_2_3_60_2_OspV=1, x_2_6_26_2_OspV=1, x_2_21_26_2_OspV=1, x_2_21_27_2_OspV=1, x_2_27_33_2_OspV=1, x_2_32_39_2_OspV=1, x_2_32_40_2_OspV=1, x_2_33_40_2_OspV=1, x_2_34_41_2_OspV=1, x_2_34_42_2_OspV=1, x_2_39_47_2_OspV=1, x_2_41_48_2_OspV=1, x_2_42_49_2_OspV=1, x_2_47_54_2_OspV=1, x_2_48_54_2_OspV=1, x_2_49_55_2_OspV=1, x_2_55_60_2_OspV=1, y_2_3_2_2_OspV=1]
+<DWph=2> <it= 10> <et=20.81> <Mt= 5.71> <Spt= 0.22> <nCl=106> <DB=-2085.3846> <Mlp=22932.0000> <PB=-1115> 
+<DWph=2> <it= 20> <et=21.97> <Mt= 0.90> <Spt= 0.22> <nCl= 92> <DB=-5644.3793> <Mlp= 6970.0000> <PB=-1115> 
+<DWph=2> <it= 30> <et=22.29> <Mt= 0.07> <Spt= 0.22> <nCl= 81> <DB=-2027.3111> <Mlp=-1026.0000> <PB=-1115> 
+<DWph=2> <it= 33> <et=22.40> <Mt= 0.03> <Spt= 0.06> <nCl= 14> <DB= -812.9438> <Mlp=-1026.0000> <PB=-1115> 
+<DWph=1> <it= 34> <et=22.43> <Mt= 0.01> <Spt= 0.03> <nCl=  3> <DB= -966.9196> <Mlp=-1026.0000> <PB=-1115> 
+---- Diving heuristic node with dive number = 1, fix depth = 1 and tabu list size = 1
+Fixed projected solution = [t_2_7_2_2_OspV=1, x_2_4_30_2_OspV=1, x_2_7_36_2_OspV=1, x_2_13_17_2_OspV=1, x_2_13_18_2_OspV=1, x_2_17_22_2_OspV=1, x_2_18_23_2_OspV=1, x_2_22_28_2_OspV=1, x_2_23_29_2_OspV=1, x_2_28_35_2_OspV=1, x_2_29_37_2_OspV=1, x_2_30_37_2_OspV=1, x_2_35_43_2_OspV=1, x_2_36_44_2_OspV=1, x_2_43_50_2_OspV=1, x_2_44_51_2_OspV=1, x_2_50_56_2_OspV=1, x_2_51_56_2_OspV=1, y_2_4_2_2_OspV=1]
+<DWph=2> <it= 10> <et=23.40> <Mt= 0.69> <Spt= 0.14> <nCl=105> <DB=-4693.2283> <Mlp=29753.6250> <PB=-1115> 
+<DWph=2> <it= 20> <et=23.69> <Mt= 0.12> <Spt= 0.15> <nCl= 27> <DB=22826.4324> <Mlp=22902.0000> <PB=-1115> 
+<DWph=2> <it= 30> <et=23.98> <Mt= 0.14> <Spt= 0.14> <nCl= 11> <DB=34830.5534> <Mlp=22893.7241> <PB=-1115> 
+<DWph=2> <it= 40> <et=24.26> <Mt= 0.09> <Spt= 0.15> <nCl= 10> <DB=34829.6981> <Mlp=22890.6667> <PB=-1115> 
+<DWph=2> <it= 50> <et=24.56> <Mt= 0.10> <Spt= 0.16> <nCl= 10> <DB=34807.2547> <Mlp=22888.3626> <PB=-1115> 
+<DWph=2> <it= 60> <et=24.82> <Mt= 0.08> <Spt= 0.15> <nCl= 10> <DB=34804.1948> <Mlp=22887.3590> <PB=-1115> 
+<DWph=2> <it= 66> <et=25.00> <Mt= 0.05> <Spt= 0.12> <nCl=  5> <DB=34805.9695> <Mlp=22887.0610> <PB=-1115> 
+<DWph=1> <it= 70> <et=25.12> <Mt= 0.04> <Spt= 0.07> <nCl=  8> <DB=22844.8597> <Mlp=22872.0000> <PB=-1115> 
+<DWph=1> <it= 80> <et=25.41> <Mt= 0.08> <Spt= 0.17> <nCl= 17> <DB=22860.4265> <Mlp=22872.0000> <PB=-1115> 
+<DWph=1> <it= 90> <et=25.74> <Mt= 0.11> <Spt= 0.18> <nCl= 16> <DB=22868.6377> <Mlp=22872.0000> <PB=-1115> 
+<DWph=1> <it=100> <et=26.11> <Mt= 0.10> <Spt= 0.23> <nCl= 15> <DB=22871.4884> <Mlp=22872.0000> <PB=-1115> 
+<DWph=1> <it=110> <et=26.46> <Mt= 0.09> <Spt= 0.21> <nCl= 17> <DB=22864.4892> <Mlp=22866.0000> <PB=-1115> 
+<DWph=1> <it=120> <et=26.77> <Mt= 0.06> <Spt= 0.21> <nCl= 11> <DB=22865.2968> <Mlp=22866.0000> <PB=-1115> 
+<DWph=1> <it=124> <et=26.92> <Mt= 0.03> <Spt= 0.10> <nCl=  4> <DB=22866.0000> <Mlp=22866.0000> <PB=-1115> 
+**** Strong branching phase 1 is started *****
+SB phase 1 cand.  1 branch on t_4_1 (lhs=0.4584): [-1124.7939, -1062.4930], score = 174.92      <et=32.24>
+SB phase 1 cand.  2 branch on t_3_1 (lhs=0.4302): [-1123.4136,  4866.6165], score = 201.20      <et=36.16>
+SB phase 1 cand.  3 branch on t_6_2 (lhs=0.3950): [-1130.2177,  -112.6400], score = 71.87      <et=41.65>
+SB phase 1 cand.  4 branch on t_7_2 (lhs=0.3604): [-1128.0316,     4.3466], score = 113.41      <et=47.53>
+SB phase 1 cand. 11 branch on y_4_2 (lhs=0.4584): [-1124.7939, -1062.4930], score = 174.92      <et=80.88>
+SB phase 1 cand. 12 branch on y_3_2 (lhs=0.4302): [-1123.4136,  4866.6165], score = 201.20      <et=84.5>
+**** Strong branching phase 2 is started *****
+<DWph=1> <it= 80> <et=136.40> <Mt= 9.51> <Spt= 3.65> <nCl=342> <DB=-1125.0000> <Mlp=-1125.0000> <PB=-1115> 
+<DWph=1> <it= 38> <et=143.79> <Mt= 5.74> <Spt= 1.31> <nCl=185> <DB=-1150.7195> <Mlp=-1134.0000> <PB=-1115> 
+SB phase 2 cand.  1 branch on t_3_1 (lhs=0.4302): [-1134.0000, -1125.0000], score = 0.00      <et=143.8>
+<DWph=1> <it= 43> <et=149.98> <Mt= 4.24> <Spt= 1.55> <nCl=193> <DB=-1125.0000> <Mlp=-1125.0000> <PB=-1115> 
+<DWph=1> <it= 59> <et=162.31> <Mt= 9.41> <Spt= 2.30> <nCl=347> <DB=-1151.7956> <Mlp=-1134.0000> <PB=-1115> 
+SB phase 2 cand.  2 branch on t_4_1 (lhs=0.4584): [-1134.0000, -1125.0000], score = 0.00      <et=162.32>
+<DWph=1> <it= 70> <et=172.23> <Mt= 6.11> <Spt= 2.82> <nCl=255> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it= 53> <et=179.69> <Mt= 5.01> <Spt= 1.73> <nCl=222> <DB=-1153.3365> <Mlp=-1134.0000> <PB=-1115> 
+SB phase 2 cand.  3 branch on t_7_2 (lhs=0.3604): [-1134.0000, -1116.0000], score = 0.00      <et=179.7>
+**** Strong branching phase 3 is started *****
+**** SB phase 3 evaluation of candidate 1, branch 1 ( t_7_2 >= 1 ), value = -1116
+<DWph=2> <it=  1> <et=179.85> <Mt= 0.01> <Spt= 0.03> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it=  2> <et=179.89> <Mt= 0.01> <Spt= 0.03> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=0> <it=  6> <et=181.06> <Mt= 0.06> <Spt= 1.10> <nCl=290> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+Reduced cost fixing for graph G_3... took 0.01 sec., 4437 buck. arcs remain (29.8% from prev., 2.25% from max.)
+Reduced cost fixing for graph G_2... took 0.01 sec., 3053 buck. arcs remain (22.2% from prev., 1.55% from max.)
+Reduced cost fixing for graph G_1... took 0.01 sec., 2700 buck. arcs remain (27.1% from prev., 1.37% from max.)
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+----- Add fac. cuts : R1C(150), max.viol = 0.236248, aver.viol = 0.103571, sep/add took 0/0.17 sec. -----
+5754 columns (3516 active), 1273 dyn. constrs. (197 active), 1564 art. vars. (484 active)
+<DWph=2> <it=  1> <et=181.47> <Mt= 0.15> <Spt= 0.01> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it=  2> <et=181.49> <Mt= 0.00> <Spt= 0.01> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=0> <it=  3> <et=181.50> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+Gap improvement since the last cut separation : -4.09269e-12 (-1116)
+----- Add fac. cuts : R1C(254), max.viol = 0.197708, aver.viol = 0.077738, sep/add took 0.06/0.31 sec. -----
+5763 columns (3525 active), 1527 dyn. constrs. (451 active), 1818 art. vars. (738 active)
+<DWph=2> <it=  5> <et=182.93> <Mt= 0.92> <Spt= 0.08> <nCl= 10> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it=  6> <et=182.96> <Mt= 0.01> <Spt= 0.02> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=0> <it=  7> <et=182.97> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+Gap improvement since the last cut separation : 2.27371e-12 (-1116)
+----- Add fac. cuts : R1C(353), max.viol = 0.269188, aver.viol = 0.136748, sep/add took 0.5/0.46 sec. -----
+5799 columns (3561 active), 1880 dyn. constrs. (804 active), 2171 art. vars. (1091 active)
+<DWph=2> <it=  8> <et=187.63> <Mt= 3.49> <Spt= 0.14> <nCl= 17> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+<DWph=1> <it=  9> <et=187.67> <Mt= 0.01> <Spt= 0.02> <nCl=  0> <DB=-1116.0000> <Mlp=-1116.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1116 (rounded: -1116)
+Gap improvement since the last cut separation : 3.45605e-11 (-1116)
+----- Add fac. cuts : sep. took 0.08 sec.----- no cuts found  -----
+**** SB phase 3 evaluation of candidate 1, branch 2 ( t_7_2 <= 0 ), value = -1134
+<DWph=2> <it=  1> <et=190.59> <Mt= 2.27> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=1> <it=  2> <et=190.59> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=0> <it=  3> <et=190.60> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1134 (rounded: -1134)
+----- Add fac. cuts : R1C(264), max.viol = 0.286477, aver.viol = 0.0951065, sep/add took 1.02/0.21 sec. -----
+4010 columns (1981 active), 2144 dyn. constrs. (1386 active), 2431 art. vars. (1673 active)
+<DWph=2> <it= 10> <et=199.59> <Mt= 6.98> <Spt= 0.59> <nCl= 37> <DB=-1136.5091> <Mlp=-1131.8831> <PB=-1115> 
+<DWph=2> <it= 20> <et=202.12> <Mt= 1.77> <Spt= 0.57> <nCl= 33> <DB=-1136.4049> <Mlp=-1132.4408> <PB=-1115> 
+<DWph=2> <it= 25> <et=203.05> <Mt= 0.59> <Spt= 0.27> <nCl= 14> <DB=-1156.8825> <Mlp=-1132.5835> <PB=-1115> 
+<DWph=1> <it= 28> <et=207.59> <Mt= 4.33> <Spt= 0.17> <nCl= 13> <DB=-1160.4830> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=0> <it= 29> <et=207.60> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1134 (rounded: -1134)
+Gap improvement since the last cut separation : 5.50483e-13 (-1134)
+----- Add fac. cuts : R1C(204), max.viol = 0.15003, aver.viol = 0.0541457, sep/add took 1.12/0.18 sec. -----
+4179 columns (2150 active), 2348 dyn. constrs. (1590 active), 2635 art. vars. (1877 active)
+<DWph=2> <it=  4> <et=219.64> <Mt=10.42> <Spt= 0.22> <nCl= 15> <DB=-1137.7270> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=1> <it=  5> <et=219.65> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=0> <it=  6> <et=219.66> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1134 (rounded: -1134)
+Gap improvement since the last cut separation : -2.03439e-13 (-1134)
+----- Add fac. cuts : R1C(182), max.viol = 0.145383, aver.viol = 0.0561073, sep/add took 1.22/0.17 sec. -----
+4201 columns (2172 active), 2530 dyn. constrs. (1772 active), 2817 art. vars. (2059 active)
+<DWph=2> <it=  5> <et=232.28> <Mt=10.63> <Spt= 0.46> <nCl= 18> <DB=-1142.5587> <Mlp=-1133.7053> <PB=-1115> 
+<DWph=1> <it=  7> <et=235.47> <Mt= 3.04> <Spt= 0.13> <nCl=  8> <DB=-1151.9149> <Mlp=-1134.0000> <PB=-1115> 
+<DWph=0> <it=  8> <et=235.48> <Mt= 0.01> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=-1134.0000> <PB=-1115> 
+ColGenEvalAlg final dual bound: -1134 (rounded: -1134)
+Gap improvement since the last cut separation : -8.97527e-13 (-1134)
+----- Cut generation is stopped due to tailing off -----
+SB exact phase 3 branch on t_7_2 (lhs=0.360368) : [-1116, -1134], tree depth = 10.94, tree size = 3930, score = -10.37
+************************************************************************************************
+**** BaB tree node (N° 3, parent N° 1, depth 1)
+**** Local DB = -1134, global bounds : [ -1134 , -1115 ], TIME = 0h3m55s50t = 23550
+**** 2 open nodes, 4240 columns (2211 active), 2530 dyn. constrs. (1772 active), 2817 art. vars. (2059 active)
+************************************************************************************************
+**** Strong branching phase 1 is started *****
+SB phase 1 cand.  1 branch on t_3_1 (lhs=0.3497): [-1130.6291,  4866.3017], score = 64.07 (h)  <et=256.91>
+SB phase 1 cand.  2 branch on t_4_1 (lhs=0.3023): [-1132.6642, -1062.7064], score = 25.38 (h)  <et=286.62>
+SB phase 1 cand.  3 branch on y_3_2 (lhs=0.3497): [-1130.6291,  4866.3017], score = 64.07 (h)  <et=309.18>
+SB phase 1 cand.  5 branch on y_6_3 (lhs=0.4101): [-1128.2838,  -448.9223], score = 108.61 (h)  <et=365.69>
+SB phase 1 cand.  6 branch on t_6_2 (lhs=0.4101): [-1128.2838,  -448.9223], score = 108.61 (h)  <et=393.11>
+SB phase 1 cand. 13 branch on t_7_1 (lhs=0.2762): [-1130.3695,  -279.4197], score = 68.98 (h)  <et=562.31>
+**** Strong branching phase 2 is started *****
+SEARCH IS INTERRUPTED due to the pricing problem return status. 
+<DWph=1> <it=  4> <et=685.31> <Mt= 2.31> <Spt= 0.35> <nCl= 35> <DB=-4529.0731> <Mlp=-1062.8643> <PB=-1115> 
+<DWph=1> <it=  0> <et=685.36> <Mt= 0.00> <Spt= 0.00> <nCl=  0> <DB=-1134.0000> <Mlp=1000000000000.0000> <PB=-1115> 
+SB phase 2 cand.  1 branch on y_6_3 (lhs=0.4101): [-1062.8643, 1000000000000.0000], score = 71135661043487.72 (h)  <et=685.37>
+**** Strong branching phase 3 is started *****
+************************************************************************************************
+Search is finished, global bounds : [ -1134 , -1115 ], TIME = 0h11m25s37t = 68537
+************************************************************************************************
+statistics_cols: instance & :Optimal & cutoff & :bcRecRootDb & :bcTimeRootEval & :bcCountNodeProc & :bcRecBestDb & :bcRecBestInc & :bcTimeMain \\
+statistics: 64-65-5-3 & 0 & -1114.99999 & -1134.00 & 14.82 & 3 & -1134.00 & -- & 685.37 \\
+########################################################
+Solution not found
+########################################################

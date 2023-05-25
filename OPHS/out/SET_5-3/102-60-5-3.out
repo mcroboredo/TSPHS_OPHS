@@ -1,0 +1,84 @@
+Application parameters:
+  batch  =>  nothing
+  tikz  =>  "/TIKZ/102-60-5-3.tex"
+  instance  =>  "/IN/102-60-5-3.ophs"
+  out  =>  "/OUT/102-60-5-3.sol"
+  nosolve  =>  false
+  ub  =>  -243
+  complete  =>  false
+  cfg  =>  "/BWTSP/src/../config/OPHS.cfg"
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+VRPSolver warning: Interval set for resource 1 on source node (when source != sink) is ignored (by definition is [0.0,0.0])
+[41m solve [00m
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver v0.4.1, 24/03/2021. Web: vrpsolver.math.u-bordeaux.fr
+Corresponds to the solver by Pessoa, Sadykov, Uchoa and Vanderbeck (2020)
+Paper: dx.doi.org/10.1007/s10107-020-01523-z
+USE THIS CODE ONLY FOR ACADEMIC PURPOSES AT YOUR OWN RISK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BaPCod v053, 24/03/2021, © Inria Bordeaux, France
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VRPSolver parameters:
+GlobalTimeLimit = 18000
+MaxNbOfBBtreeNodeTreated = 100000
+treeSearchStrategy = 1
+RCSPstopCutGenTimeThresholdInPricing = 10
+RCSPhardTimeThresholdInPricing = 25
+RCSPnumberOfBucketsPerVertex = 25
+RCSPdynamicBucketSteps = 1
+RCSPuseBidirectionalSearch = 2
+RCSPapplyReducedCostFixing = 1
+RCSPredCostFixingFalseGap = 0
+RCSPmaxNumOfColsPerIteration = 30
+RCSPmaxNumOfColsPerExactIteration = 150
+RCSPheurLabelingStrategy = 0
+StabilizationMinPhaseOfStage = 0
+RCSPmaxNumOfLabelsInEnumeration = 500000
+RCSPmaxNumOfEnumeratedSolutions = 5000000
+RCSPmaxNumOfEnumSolutionsForMIP = 10000
+RCSPinitNGneighbourhoodSize = 8
+RCSPmaxNGneighbourhoodSize = 8
+RCSPrankOneCutsMaxNumPerRound = 100
+RCSPrankOneCutsMaxNumRows = 5
+RCSPrankOneCutsMemoryType = 0
+CutTailingOffThreshold = 0.015
+CutTailingOffCounterThreshold = 3
+SafeDualBoundScaleFactor = -1
+StrongBranchingPhaseOneCandidatesNumber = 100
+StrongBranchingPhaseOneTreeSizeEstimRatio = 0.2
+StrongBranchingPhaseTwoCandidatesNumber = 3
+StrongBranchingPhaseTwoTreeSizeEstimRatio = 0.02
+MaxTimeForRestrictedMasterIpHeur = -1
+DivingHeurUseDepthLimit = 0
+MaxLDSbreadth = 1
+MaxLDSdepth = 10000
+New model incumbent solution -242, TIME = 0h0m0s3t = 3
+Model is built TIME = 0h0m1s8t = 108
+************************************************************************************************
+**** BaB tree root node
+**** Local DB = -1e+12, global bounds : [ -1e+12 , -242 ], TIME = 0h0m1s8t = 108
+**** 1 open nodes, 0 columns (0 active), 0 dyn. constrs. (0 active), 439 art. vars. (439 active)
+************************************************************************************************
+--------------------------------------------------------------------------
+BaPCod info : first we run the root node with rank-1 cuts with node memory
+--------------------------------------------------------------------------
+<DWph=2> <it= 10> <et=1.20> <Mt= 0.00> <Spt= 0.09> <nCl= 99> <DB= -398.9265> <Mlp= -243.0000> <PB=-243> 
+<DWph=2> <it= 16> <et=1.27> <Mt= 0.00> <Spt= 0.07> <nCl=  8> <DB= -243.0000> <Mlp= -243.0000> <PB=-243> 
+<DWph=1> <it= 19> <et=1.31> <Mt= 0.00> <Spt= 0.03> <nCl=  2> <DB= -243.0000> <Mlp= -243.0000> <PB=-243> 
+<DWph=0> <it= 20> <et=1.33> <Mt= 0.00> <Spt= 0.02> <nCl=  0> <DB= -243.0000> <Mlp= -243.0000> <PB=-243> 
+ColGenEvalAlg final dual bound: -243 (rounded: -243)
+New model incumbent solution -243, TIME = 0h0m1s34t = 134
+************************************************************************************************
+Search is finished, global bounds : [ -243 , -243 ], TIME = 0h0m1s34t = 134
+************************************************************************************************
+[32mBaPCod : solution defined.[00m
+statistics_cols: instance & :Optimal & cutoff & :bcRecRootDb & :bcTimeRootEval & :bcCountNodeProc & :bcRecBestDb & :bcRecBestInc & :bcTimeMain \\
+statistics: 102-60-5-3 & 1 & -241.99999 & -243.00 & 1.34 & 1 & -243.00 & -243 & 1.34 \\
+########################################################
+trip 1 : 1 21 65 107 15 3 
+trip 2 : 3 63 18 106 81 66 64 4 
+trip 3 : 4 28 48 46 2 
+tour : 1 21 65 107 15 3 63 18 106 81 66 64 4 28 48 46 2
+Cost 243.0
+########################################################

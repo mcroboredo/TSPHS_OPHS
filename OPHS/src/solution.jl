@@ -1,9 +1,11 @@
-#include("extra/factorials.jl")
-#include("extra/permutations.jl")
+include("extra/factorials.jl")
+include("extra/permutations.jl")
+
 
 mutable struct Solution
     cost::Union{Int,Float64}
     trips::Dict{Float64,Array{Int64}}
+    tour::Array{Int}
 end
 
 mutable struct Custom_Solution
@@ -102,7 +104,15 @@ function getsolution_non_symmetric(data::DataOPHS, optimizer::VrpOptimizer, x, y
         end
         sol_trips[id] = trip
     end
-    return Solution(sol_cost, sol_trips)
+
+    tour = []
+    for k=1:D
+        for j=1:length(sol_trips[k])-1
+            push!(tour,sol_trips[k][j])
+        end
+    end
+    push!(tour, 2)
+    return Solution(sol_cost, sol_trips,tour)
 end
 
 function getsolution_symmetric(data::DataOPHS, optimizer::VrpOptimizer, x, y,g,objval, app::Dict{String,Any})
@@ -174,13 +184,64 @@ function getsolution_symmetric(data::DataOPHS, optimizer::VrpOptimizer, x, y,g,o
             id += 1
         end
     end
-    return Solution(sol_cost, sol_trips)
+    tour = []
+    trips_array = []
+    for i=1:D
+        push!(trips_array, sol_trips[i])
+    end
+
+    T = collect(permutations(trips_array))
+    found_tour = false
+    for i=1:length(T)
+        found_tour = true
+        if T[i][1][1] == 1 && T[i][D][end] == 2
+            for k=1:D-1
+                if T[i][k][end] != T[i][k+1][1]
+                    found_tour = false
+                end
+            end
+        else
+            found_tour = false
+        end
+
+        if found_tour
+            for k=1:D
+                for j=1:length(T[i][k])-1
+                    push!(tour,T[i][k][j])
+                end
+            end
+            push!(tour, 2)
+            @show tour
+            break
+        end
+    end
+
+    
+
+
+    return Solution(sol_cost, sol_trips,tour)
 end
 
 function print_trips(data::DataOPHS, solution)
-    for k=1:data.D
-        println("trip ", k, ": ", solution.trips[k])
+    for k=1:length(solution.trips)
+        print("trip ", k, " : ")
+        for i=1:length(solution.trips[k])
+            print(solution.trips[k][i], " ")
+        end
+        println()
     end
+end
+
+function print_tour(solution)
+    print("tour : ")
+    for k=1:length(solution.tour)
+        if k == length(solution.tour)
+            print(solution.tour[k])
+        else
+            print(solution.tour[k], " ")
+        end
+    end
+    println()
 end
 
 # checks the feasiblity of a solution
@@ -287,7 +348,15 @@ function writesolution(data::DataOPHS, solpath, solution)
             end
             write(f, "\n")
         end
-        write(f, "Cost $(-solution.cost)\n")
+        for k=1:length(solution.tour)
+            write(f, "tour :")
+            if k == length(solution.tour)
+                write(f,"$(solution.tour[k])\n")
+            else
+                write(f,"$(solution.tour[k]) ")
+            end
+        end
+        write(f, "Cost : $(-solution.cost)\n")
     end
 end
 
