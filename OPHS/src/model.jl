@@ -9,7 +9,6 @@
     - cuts::Int64 #Total number of cuts inserted by the user callback
 =#
 
-
 # Está sendo utilizado? Parece que não
 mutable struct Layer
     type::String
@@ -17,7 +16,6 @@ mutable struct Layer
     first_id::Int64  
     last_id::Int64 
 end
-
 
 # Creates function to build the model that we'll run in VRPSolver.
 function build_model(data::DataOPHS, app)
@@ -42,43 +40,40 @@ function build_model(data::DataOPHS, app)
         Case 3 -> A single graph with stops
     =#
 
-    # Formulation
+    # Instantiate the model. 
     bwtsp = VrpModel()
 
-    # Variables
-    
+    # Create the variables
     @variable(bwtsp.formulation, x[e in E], Int) # Number of times edge e is traversed.
-    @variable(bwtsp.formulation, 0 <= g[i in C] <= 1, Int) # g_i = 1 if the customer i is visited.
-    
+    @variable(bwtsp.formulation, 0 <= g[i in C] <= 1, Int) # g_i = 1 if the customer i is visited.   
     # If symmetric, we don't need to keep the moment a trip was made. The order does not influence the result.
     if data.symmetric
-        @variable(bwtsp.formulation, y[i in H], Int) # y[i] is the number of times that the hotel i is visited
+        @variable(bwtsp.formulation, y[i in H], Int) # y[i] is the number of times that hotel i is visited
     else
         @variable(bwtsp.formulation, y[i in H, k in T], Int) # y[i,k] = 1 if trip k starts at the hotel i
         @variable(bwtsp.formulation, t[i in H, k in T], Int) # t[i,k] = 1 if trip k ends at the hotel i
     end
     
-    # Objective Function
-    # The object function maximizes the total score obtained with the visited customers
-    @objective(bwtsp.formulation, Min, -sum(s(data,i)*g[i] for i in C))
+    # Create the objective Function
+    @objective(bwtsp.formulation, Min, -sum(s(data,i)*g[i] for i in C)) # Maximizes the score obtained from customers
 
-    # Constraints
+    # Create the Constraints
     
     # The total tour length does not exceed Tmax
     if data.symmetric
         # If symmetric, we sum the cost of a "dummy arc" from the start to the end
         # This arc was created for modeling purposes. It does not exist in fact. 
-        @constraint(bwtsp.formulation, sum(c(data,e)*x[e] for e in E) <= Tmax + c(data,(1,2))) 
+        @constraint(bwtsp.formulation, sum(c(data,e) * x[e] for e in E) <= Tmax + c(data,(1,2))) 
     else 
         if !app["complete"]
-            @constraint(bwtsp.formulation, sum(c(data,e)*x[e] for e in E) <= Tmax)
+            @constraint(bwtsp.formulation, sum(c(data,e) * x[e] for e in E) <= Tmax)
         end 
     end
 
-    # Is each customer visited only once? 
-    # Is the degree of a visited customer 2?
+    # Is each customer visited only once? Is the degree of a visited customer 2?
     @constraint(bwtsp.formulation, deg[i in C], sum(x[e] for e in E if e[1] == i || e[2]==i) == 2*g[i]) 
     
+    # Remember from the definition that g[i] is binary. Constraints below are not necessary 
     @constraint(bwtsp.formulation, men[i in C], g[i] <= 1) 
     @constraint(bwtsp.formulation, mai[i in C], g[i] >= 0)
     
@@ -96,10 +91,11 @@ function build_model(data::DataOPHS, app)
     end
     
     #println(bwtsp.formulation)
-    # Now we'll build the graphs.
     
-    # A small that could be used to represent the dummy trip
-    # This is not used currently
+    
+    # Now we'll build the graphs.
+
+    # A small that could be used to represent the dummy trip. This is not used currently
     function build_trip_1_2_graph()
         V′ = [1,2] # just the two vertices are necessary. This graph is only for the dummy trip
         v_source, v_sink = 1, 2
@@ -280,7 +276,7 @@ function build_model(data::DataOPHS, app)
         return G
     end
 
-     # The alternative graph for the symmetric case.
+    # The alternative graph for the symmetric case.
     function build_alternative_graph_symmetric()
         #= 
         # The Vertices of the graph are:
@@ -339,7 +335,7 @@ function build_model(data::DataOPHS, app)
         return G
     end    
 
-    # The symmetric case.
+    # The symmetric case with a complete route.
     function build_graph_CompleteRoute_symmetric()
         #= 
         # The Vertices of the graph are:
@@ -509,7 +505,7 @@ function build_model(data::DataOPHS, app)
         add_graph!(bwtsp, G)
         push!(graphs, G)
     
-    else
+    else # if it is not symmetric, build a graph for each trip.
         for k=1:length(T)
             if k != length(T)+1
                 G = build_graph_non_symmetric(k,Td[k]+0.01) 
