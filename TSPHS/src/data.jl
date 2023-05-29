@@ -53,6 +53,8 @@ function readTSPHSData(app::Dict{String,Any})
       h = parse(Int, aux[i])
       c = parse(Int, aux[i+1])
       l = parse(Int, aux[i+2])
+      
+      # l = 150 # modificar para o usuário definir o l
 
       j = i + 3
       last = 1
