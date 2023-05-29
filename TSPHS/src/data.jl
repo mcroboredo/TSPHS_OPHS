@@ -21,8 +21,6 @@ mutable struct DataTSPHS
    Lim::Int # time limit
 end
 
-contains(p, s) = findnext(s, p, 1) != nothing
-
 function distance(data::DataTSPHS, arc::Tuple{Int64, Int64})
    e = (arc[1] < arc[2]) ? arc : (arc[2],arc[1])
    if haskey(data.G′.cost, e) # use already calculated value
@@ -35,7 +33,6 @@ function distance(data::DataTSPHS, arc::Tuple{Int64, Int64})
       # euclidian distance
       x_sq = (vertices[v].pos_x - vertices[u].pos_x)^2
       y_sq = (vertices[v].pos_y - vertices[u].pos_y)^2
-      #return sqrt(x_sq + y_sq)
       return floor(sqrt(x_sq + y_sq), digits=1)
    end
 end
@@ -102,91 +99,11 @@ function readTSPHSData(app::Dict{String,Any})
          end
       end
    end
-   println(data.G′.V′)
+   # println(data.G′.V′)
    # println(data.G′.cost)
 
    return data
 end
-
-function readTSPHSData2(app::Dict{String,Any})
-
-   str = Unicode.normalize(read(app["instance"], String); stripcc=true)
-   breaks_in = [' '; ':'; '\n']
-   aux = split(str, breaks_in; limit=0, keepempty=false)
-
-   G′ = InputGraph([],[],Dict())
-   data = DataTSPHS(G′, [], [], 0)
-
-   h, c, = 0, 0
-   for i in 1:length(aux)
-
-      if contains(aux[i], "LIMIT")
-         data.Lim = parse(Int, aux[i+1])
-      end
-
-      if contains(aux[i], "HOTEL_SECTION")
-         out_loop = false
-         j = i
-         while out_loop == false
-            h += 1
-            v = Vertex(0, 0, 0, 0)
-            v.id_vertex = parse(Int, aux[j+1])
-            v.pos_x = parse(Float64, aux[j+2])
-            v.pos_y = parse(Float64, aux[j+3])
-            v.s_time = 0.0
-            #@show v
-            push!(data.G′.V′,v)
-            if contains(aux[j+4], "CUSTOMER_SECTION")
-               out_loop = true
-            else
-               j+=3
-            end
-         end
-      end
-
-      if contains(aux[i], "CUSTOMER_SECTION")
-         out_loop = false
-         j = i
-         while out_loop == false
-            c += 1
-            v = Vertex(0, 0, 0, 0)
-            v.id_vertex = parse(Int, aux[j+1])
-            v.pos_x = parse(Float64, aux[j+2])
-            v.pos_y = parse(Float64, aux[j+3])
-            v.s_time = parse(Float64, aux[j+4])
-            #v.s_time = 0.0
-            #@show v
-            push!(data.G′.V′,v)
-            if contains(aux[j+5], "EOF")
-               out_loop = true
-            else
-               j+=4
-            end
-         end
-      end
-   end
-
-   data.H′ = [i for i=1:h]
-   data.C′ = [i for i=h+1:h+c]
-
-
-   for i in vertices(data)
-      for j in vertices(data) # add edges between customers and hotels
-         if i < j
-            e = (i,j)
-            push!(G′.E, e) # add edge e
-            data.G′.cost[e] = distance(data, e) # cost edge e
-         end
-      end
-   end
-
-   #println(data.Lim)
-   #println(data.G′.V′)
-   #sleep(1000)
-
-   return data
-end
-
 
 edges(data::DataTSPHS) = data.G′.E # return set of edges
 c(data,e) = data.G′.cost[e] # cost of the edge e
