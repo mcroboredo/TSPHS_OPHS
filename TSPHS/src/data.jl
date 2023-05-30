@@ -19,6 +19,7 @@ mutable struct DataTSPHS
    H′::Array{Int64} # hotels set
    C′::Array{Int64} # customers set
    Lim::Int # time limit
+   round::Bool
 end
 
 function distance(data::DataTSPHS, arc::Tuple{Int64, Int64})
@@ -33,6 +34,11 @@ function distance(data::DataTSPHS, arc::Tuple{Int64, Int64})
       # euclidian distance
       x_sq = (vertices[v].pos_x - vertices[u].pos_x)^2
       y_sq = (vertices[v].pos_y - vertices[u].pos_y)^2
+      
+      if data.round
+         return floor(sqrt(x_sq + y_sq) + 0.5)
+      end
+      
       return floor(sqrt(x_sq + y_sq), digits=1)
    end
 end
@@ -44,7 +50,7 @@ function readTSPHSData(app::Dict{String,Any})
    aux = split(str, breaks_in; limit=0, keepempty=false)
 
    G′ = InputGraph([],[],Dict())
-   data = DataTSPHS(G′, [], [], 0)
+   data = DataTSPHS(G′, [], [], 0, false)
 
    nodes = []
    h, c, l = 0, 0, 0
@@ -90,6 +96,11 @@ function readTSPHSData(app::Dict{String,Any})
    G′.V′ = nodes # add vertices to graph G′
    # println(G′.V′)
 
+   if app["round"]!=0
+      data.round = true
+   end
+
+
    for i in vertices(data)
       for j in vertices(data) # add edges between customers and hotels
          if i < j
@@ -99,9 +110,33 @@ function readTSPHSData(app::Dict{String,Any})
          end
       end
    end
+
+   
    # println(data.G′.V′)
    # println(data.G′.cost)
+   
+   #=
+   sol = [1, 33, 63, 16, 3, 44, 32, 9, 39, 72, 58, 10, 31, 55, 25, 50, 18, 24, 49, 23, 56, 41, 43, 42, 64, 22, 61, 21, 47, 36, 69, 71, 60, 70, 20, 37, 5, 15, 57, 13, 54, 19, 14, 59, 66, 65, 38, 11, 53, 7, 35, 8, 46, 34, 52, 27, 45, 29, 48, 30, 4, 75, 76, 67, 26, 12, 40, 17, 51, 6, 68, 2, 74, 28, 62, 73, 1]
+   cost = 0.0
+   for i = 1:length(sol)-1
+      e1 = Int(sol[i]) + 11
+      e2 = Int(sol[i+1]) + 11
+      #=
+      if e1 > 11
+         e1 += 11
+      end
 
+      if e2>11
+         e2 += 11
+      end
+      =#
+      cost = cost + distance(data, (e1,e2))
+      @show cost
+   end
+   =#
+   #@show data
+   #@show cost
+   #sleep(10000000)
    return data
 end
 
