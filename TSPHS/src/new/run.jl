@@ -57,7 +57,7 @@ function run_TSPHS(app::Dict{String,Any})
    if !app["nosolve"]
       (model, x) = build_model(data, app)
       optimizer = VrpOptimizer(model, app["cfg"], instance_name)
-      set_cutoff!(optimizer, app["ub"]+0.1)
+      set_cutoff!(optimizer, app["ub"])
 
       (status, solution_found) = optimize!(optimizer)
       if solution_found

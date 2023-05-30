@@ -7,7 +7,8 @@ function build_model(data::DataTSPHS, app::Dict{String,Any})
    C = data.C′ # Set of customers
    q = app["qvalue"] # q value
 
-   
+   # set of customers of the input graph G′ + source and sink (0)
+   V = [i for i in 0:n]
 
    #v(i) = (i <= n) ? i : i - n # convert hotel vertex duplicates to original hotel vertex
    ed(i,j) = i < j ? (i,j) : (j,i) # get the proper edge
@@ -24,79 +25,9 @@ function build_model(data::DataTSPHS, app::Dict{String,Any})
    # @constraint(tsphs.formulation, sum(b[h] for h in H) == q)
    # println(tsphs.formulation)
 
-
-   function build_alt_graph()
-
-      V = [i for i in 0:n+length(H)+1]
-      H′ = [n+i for i=1:length(H)] #Copies of the hotels
-      v_source = 0
-      v_sink = V[end]
-      L = U = q
-
-      # node ids of G from 0 to |V|
-      G = VrpGraph(tsphs, V, v_source, v_sink, (L, U))
-      cap_res_id = add_resource!(G, main = true) # R = R_M = {cap_res_id}
-      for i in V
-         l_i, u_i = 0.0, Float64(data.Lim) # accumulated resource consumption interval [l_i, u_i] for the vertex i
-         set_resource_bounds!(G, i, cap_res_id, l_i, u_i)
-      end
-
-      # Build set of arcs A from E′ (two arcs for each edge (i,j))
-      for i in H # setting the arcs between source, sink, and hotels
-         arc_id = add_arc!(G, v_source, i) # source -> i(Hotel)
-         set_arc_consumption!(G, arc_id, cap_res_id, 0.0)
-         add_arc_var_mapping!(G, arc_id, b[i])
-         arc_id = add_arc!(G, n+i, v_sink) # i(Hotel copy) -> sink
-         set_arc_consumption!(G, arc_id, cap_res_id, 0.0)
-      end
-
-      for i in H
-         for j in H
-            if i != j
-               arc_id = add_arc!(G, i, j+n)
-               if i < j 
-                  add_arc_var_mapping!(G, arc_id, x[(i,j)])
-               else
-                  add_arc_var_mapping!(G, arc_id, x[(j,i)])
-               end
-            end
-         end
-      end
-
-      for i in H
-         for j in C
-            arc_id = add_arc!(G, i,j)
-            set_arc_consumption!(G, arc_id, cap_res_id, c(data,(i,j)) + 0.5*service(data,j))
-            add_arc_var_mapping!(G, arc_id, x[(i,j)])
-
-            arc_id = add_arc!(G, j,n+i)
-            set_arc_consumption!(G, arc_id, cap_res_id, c(data,(i,j)) + 0.5*service(data,j))
-            add_arc_var_mapping!(G, arc_id, x[(i,j)])
-         end
-      end
-
-      for i in C
-         for j in C
-            if i < j
-               avg = 0.5*(service(data,i) + service(data,j))
-
-               arc_id = add_arc!(G, i,j)
-               set_arc_consumption!(G, arc_id, cap_res_id, c(data,(i,j)) + avg)
-               add_arc_var_mapping!(G, arc_id, x[(i,j)])
-
-               arc_id = add_arc!(G, j,i)
-               set_arc_consumption!(G, arc_id, cap_res_id, c(data,(i,j)) + avg)
-               add_arc_var_mapping!(G, arc_id, x[(i,j)])
-            end
-         end
-      end
-
-      return G
-   end
    # Build the model directed graph G=(V,A)
    function build_graph()
-      # set of customers of the input graph G′ + source and sink (0)
-      V = [i for i in 0:n]
+
       v_source = v_sink = 0
       L = U = q
 
@@ -133,7 +64,7 @@ function build_model(data::DataTSPHS, app::Dict{String,Any})
       return G
    end
 
-   G = build_alt_graph()
+   G = build_graph()
    add_graph!(tsphs, G)
    # println(G)
 
