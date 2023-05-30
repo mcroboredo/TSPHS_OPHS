@@ -1,4 +1,24 @@
 
+
+meucd = pwd()
+diretorio_dados = meucd*"/Dados_para_converter"
+
+lista_pastas = readdir(diretorio_dados)
+
+for pasta in lista_pastas[1] 
+    lista_arquivos = readdir(diretorio_dados * "/" * pasta)
+    
+    for arquivo in lista_arquivos[1]
+        print(arquivo)
+        file = open("/" * pasta * "/" * arquivo, "r")
+        dados = read(file, String)
+        close(file)
+    end
+
+end
+dados
+
+#=
 # Leitura dos valores ótimos e criação de um dicionário chamado otimos_dict
 file = open("otimos.txt", "r")
 dados = read(file, String)
@@ -29,3 +49,4 @@ close(file)
 
 # leitura do arquivo da instância
 
+=#
