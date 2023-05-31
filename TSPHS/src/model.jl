@@ -133,7 +133,7 @@ function build_model(data::DataTSPHS, app::Dict{String,Any})
       return G
    end
 
-   G = build_graph()
+   G = build_alt_graph()
    add_graph!(tsphs, G)
    # println(G)
 

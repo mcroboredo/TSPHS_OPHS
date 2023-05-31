@@ -32,7 +32,11 @@ function parse_commandline(args_array::Array{String,1}, appfolder::String)
          action = :store_true
       "--batch","-b"
          help = "batch file path"
-   end
+      "--round","-r"
+         help = "We round the distance matrix"
+         arg_type = Int
+         default = 0
+      end
    return parse_args(args_array, s)
 end
 
