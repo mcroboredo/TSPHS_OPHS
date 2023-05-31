@@ -1,22 +1,36 @@
+lista_pastas = readdir("Dados_para_converter")
 
-
-meucd = pwd()
-diretorio_dados = meucd*"/Dados_para_converter"
-
-lista_pastas = readdir(diretorio_dados)
-
-for pasta in lista_pastas[1] 
-    lista_arquivos = readdir(diretorio_dados * "/" * pasta)
+for pasta in lista_pastas
+    lista_arquivos = readdir("Dados_para_converter" * "/" * pasta)
     
-    for arquivo in lista_arquivos[1]
-        print(arquivo)
-        file = open("/" * pasta * "/" * arquivo, "r")
-        dados = read(file, String)
-        close(file)
+    for arquivo in lista_arquivos
+        println("Dados_para_converter" * "/" * pasta  * "/" * arquivo)
+
     end
 
 end
-dados
+
+
+
+
+function writecalls(path, aux)
+    open(path, "w") do f
+        write(f, aux[1], " ", aux[2], " ", aux[3], "\n") 
+        pos = 4
+        for i=1:parse(Int, aux[1])
+            write(f, aux[pos], " ", aux[pos+1], " ", aux[pos+2],"\n") 
+            pos +=3
+        end
+        for i=1:parse(Int, aux[2])
+            write(f, aux[pos], " ", aux[pos+1], " ", aux[pos+2]," ", aux[pos+3],"\n") 
+            pos +=4
+        end
+
+    end
+end
+
+
+
 
 #=
 # Leitura dos valores ótimos e criação de um dicionário chamado otimos_dict
