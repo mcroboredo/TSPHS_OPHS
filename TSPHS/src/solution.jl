@@ -165,7 +165,7 @@ end
 
 function print_routes(data::DataTSPHS, solution)
    for (i,r) in enumerate(solution.routes)
-      print("Route #$i: ")
+      print("Tour #$i: ")
       for j in r
          !in(j,data.H′) ? print("$(j-1) ") : printstyled("$(j-1) ", color=:cyan)
       end

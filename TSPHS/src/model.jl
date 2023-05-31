@@ -1,11 +1,11 @@
 # using SimpleWeightedGraphs
-function build_model(data::DataTSPHS, app::Dict{String,Any})
+function build_model(data::DataTSPHS, app::Dict{String,Any}, q::Int)
 
    E′ = edges(data) # set of edges of the input graph G′
    n = dimension(data) # number of vertices
    H = data.H′ # Set of hotels
    C = data.C′ # Set of customers
-   q = app["qvalue"] # q value
+   #q = app["qvalue"] # q value
 
    
 
