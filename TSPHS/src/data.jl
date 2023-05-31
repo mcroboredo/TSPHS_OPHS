@@ -37,6 +37,8 @@ function distance(data::DataTSPHS, arc::Tuple{Int64, Int64})
    end
 end
 
+
+
 function readTSPHSData(app::Dict{String,Any})
 
    str = Unicode.normalize(read(app["instance"], String); stripcc=true)
