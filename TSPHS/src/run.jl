@@ -136,7 +136,7 @@ function run_TSPHS(app::Dict{String,Any})
          appfolder = dirname(@__FILE__)
          
          path_config = string(appfolder, "/../config/TSPHS.cfg")
-         path_config_copy = string(appfolder, "/../config/extra/TSPHS_copy.cfg")
+         path_config_copy = string(appfolder, "/../config/TSPHS_copy.cfg")
 
          rm(path_config_copy, force = true)
          cp(path_config, path_config_copy)
