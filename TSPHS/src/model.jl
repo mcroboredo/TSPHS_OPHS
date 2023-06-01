@@ -1,4 +1,33 @@
 # using SimpleWeightedGraphs
+function dist_elementarity(data,(i,j))
+   n = dimension(data) # number of vertices
+   H = data.H′ # Set of hotels
+   C = data.C′ # Set of customers
+   #@show legit ngth(C), length(H)
+   #@show i,j
+   if i <= length(C) #The first elementary sets indexes correspond to customers
+      a = length(H) + i # a is the customer i
+   elseif i > length(C) && i <= length(C) + length(H) # The elementary sets indexes of the hotels starts after customers
+      a = i - length(C)
+   else # The hotel copy i corresponds to the hotel i -n 
+      a = i - (length(C)+ length(H))
+   end
+
+   if j <= length(C) #The first elementary sets indexes correspond to customers
+      b = length(H) + j # a is the customer i
+   elseif j > length(C) && j <= length(C) + length(H) # The elementary sets indexes of the hotels starts after customers
+      b = j - length(C)
+   else # The hotel copy i corresponds to the hotel i -n 
+      b = j - (length(C)+ length(H))
+   end
+
+   #@show a,b
+ 
+
+   return distance(data,(a,b))
+
+end
+
 function build_model(data::DataTSPHS, app::Dict{String,Any}, q::Int)
 
    E′ = edges(data) # set of edges of the input graph G′
@@ -135,11 +164,12 @@ function build_model(data::DataTSPHS, app::Dict{String,Any}, q::Int)
 
    G = build_alt_graph()
    add_graph!(tsphs, G)
-   # println(G)
+   #println(G)
 
    set_vertex_packing_sets!(tsphs, [[(G,i)] for i in C])
-
-   define_elementarity_sets_distance_matrix!(tsphs, G, [[ distance(data, (i,j)) for i in C] for j in C])
+   H′ = [n+i for i=1:length(H)]
+   set_additional_vertex_elementarity_sets!(tsphs, [(G,[i]) for i in vcat(H,H′)] )
+   define_elementarity_sets_distance_matrix!(tsphs, G, [[ dist_elementarity(data, (i,j)) for i in vcat(C,H,H′)] for j in vcat(C,H,H′)])
 
    set_branching_priority!(tsphs, "b", 1)
    set_branching_priority!(tsphs, "x", 1)
