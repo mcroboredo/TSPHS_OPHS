@@ -1,66 +1,39 @@
 lista_pastas = readdir("Dados_para_converter")
-
 for pasta in lista_pastas
-    lista_arquivos = readdir("Dados_para_converter" * "/" * pasta)
-    
+    lista_arquivos = readdir("Dados_para_converter/" * pasta)
     for arquivo in lista_arquivos
-        println("Dados_para_converter" * "/" * pasta  * "/" * arquivo)
-
-    end
-
-end
-
-
-
-
-function writecalls(path, aux)
-    open(path, "w") do f
-        write(f, aux[1], " ", aux[2], " ", aux[3], "\n") 
-        pos = 4
-        for i=1:parse(Int, aux[1])
-            write(f, aux[pos], " ", aux[pos+1], " ", aux[pos+2],"\n") 
-            pos +=3
-        end
-        for i=1:parse(Int, aux[2])
-            write(f, aux[pos], " ", aux[pos+1], " ", aux[pos+2]," ", aux[pos+3],"\n") 
-            pos +=4
-        end
-
-    end
-end
-
-
-
-
-#=
-# Leitura dos valores ótimos e criação de um dicionário chamado otimos_dict
-file = open("otimos.txt", "r")
-dados = read(file, String)
-breaks_in = [' '; ':'; '\n';'\t';'\r']
-aux = split(dados, breaks_in; limit=0, keepempty=false)    
-otimos_dict = Dict()
-nrows = Int(length(aux)/2)
-for i = 1:2:nrows
-    push!(otimos_dict, aux[i] => aux[i+1]) 
-end 
-close(file)
-
-# Leitura do tour ótimo
-file = open("Data_tours/eil76.opt.tour", "r")
-dados = read(file, String)
-breaks_in = [' '; ':'; '\n';'\t';'\r']
-aux = split(dados, breaks_in; limit=0, keepempty=false)
-nrows = length(aux)
-sol = []
-for i = 1:nrows
-    if aux[i] == "TOUR_SECTION"
-        for j = i+1:length(aux)-1
-            push!(sol, parse(Int,aux[j]))
+        caminho_arquivo = "Dados_para_converter/" * pasta  * "/" * arquivo
+        
+        # Read the file and obtain aux
+        file = open(caminho_arquivo, "r")
+        dados = read(file, String)
+        close(file)
+        breaks_in = [' '; ':'; '\n';'\t';'\r']
+        aux = split(dados, breaks_in; limit=0, keepempty=false)
+        
+        # Write other file
+        caminho_novo = "Dados_convertidos/" * pasta  * "/" * arquivo
+        open(caminho_novo, "w") do f
+            n_hotels = parse(Int, aux[2]) + 2 
+            n_customers = parse(Int, aux[1]) - 2
+            write(f, string(n_hotels), " ", string(n_customers), " ", aux[5], "\n") # Write first row (|H| |C| |T_d|)
+            
+            # Loop to write the hotels
+            pos = 4 + parse(Int,aux[3]) + 1 # Get the position of the first hotel
+            count = 0
+            for i=1:n_hotels
+                write(f, string(count), " ", aux[pos], " ", aux[pos+1], "\n")
+                pos += 3
+                count += 1
+            end
+            
+            # Loop to write clients info
+            for i=1:n_customers
+                write(f, string(count), " ", aux[pos], " ", aux[pos+1], " ", "0", "\n")
+                pos += 3
+                count += 1
+            end
         end
     end
 end
-close(file)
 
-# leitura do arquivo da instância
-
-=#
