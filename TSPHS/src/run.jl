@@ -123,20 +123,48 @@ function run_TSPHS(app::Dict{String,Any})
             time_limit = parse(Float64, aux[i+1])
          end
       end
+      
       #----------------
       accumulated_time = last_time = 0.0
       feasible = false
       q = app["qvalue"] #minimum number of trips
+
+      time_limit_aux = time_limit
+
       while feasible == false && accumulated_time <= time_limit
          (model, x) = build_model(data, app, q)
-         optimizer = VrpOptimizer(model, app["cfg"], instance_name)
+         appfolder = dirname(@__FILE__)
+         
+         path_config = string(appfolder, "/../config/TSPHS.cfg")
+         path_config_copy = string(appfolder, "/../config/extra/TSPHS_copy.cfg")
+
+         rm(path_config_copy, force = true)
+         cp(path_config, path_config_copy)
+         #sleep(10)
+         
+         lines = readlines(path_config_copy)
+         
+         open(path_config_copy, "w") do f
+            for line in lines
+               
+               if startswith(line, "GlobalTimeLimit")
+                  new_limit = string(floor(Int, (time_limit - accumulated_time) + 0.5))
+                  println(f, replace(line, "18000" => new_limit, count = 1))
+               else
+                  println(f, line)
+               end
+            end
+         end
+         
+         optimizer = VrpOptimizer(model, path_config_copy, instance_name)
          if app["fixedtrip"]
             #The initial upper bound only can be used if the number of trips is fixed
             set_cutoff!(optimizer, app["ub"]+0.1)
          end
          (status, solution_found) = optimize!(optimizer)
-
+         rm(path_config_copy, force = true)
          accumulated_time += optimizer.stats[:bcTimeMain] / 100
+         time_limit_aux -= optimizer.stats[:bcTimeMain] / 100
          
          if solution_found
             feasible = true
