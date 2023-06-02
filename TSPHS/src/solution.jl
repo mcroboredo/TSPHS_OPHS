@@ -4,6 +4,83 @@ mutable struct Solution
    edge_sol::Dict{Tuple{Int64,Int64},Float64}
 end
 
+
+
+# build Solution from the variables x
+function getsolution_alt(data::DataTSPHS, optimizer::VrpOptimizer, x, objval, app::Dict{String,Any})
+   E, dim, H = edges(data), dimension(data), data.H′
+   adj_list = [[] for i in 1:dim]
+   incidence = [0 for i in H]
+   edge_solution = Dict()
+
+   trips = []
+   cont = 1
+   for path_id in 1:get_number_of_positive_paths(optimizer)
+      trip, trip_edges, source, sink= [], [], 0,0
+
+      println("Trip ", cont)
+   
+      #getting the edges of each trip
+      for e in E
+          val = get_value(optimizer, x[e], path_id)
+          if val > 0
+              @show e
+              push!(trip_edges, e)
+          end
+      end
+
+      current = 0
+      visited = Dict()
+      for e in trip_edges
+         visited[e] = false
+      end
+      for e in trip_edges
+         if e[1] in H
+            @show e
+            current = e[2]
+            visited[e] = true
+            trip=[e[1],e[2]]
+            break
+         end
+      end
+
+      continue_ = true
+
+      while continue_
+         for e in trip_edges
+            if visited[e] == false && current in e
+               @show e
+               visited[e] = true
+               if e[1] == current
+                  current = e[2]
+                  push!(trip,current)
+               else
+                  current = e[1]
+                  push!(trip,current)
+               end
+               break
+            end
+         end
+         continue_ = false
+         for e in trip_edges
+            if visited[e] == false
+               continue_ = true
+               break
+            end
+         end
+
+         
+      end
+      push!(trips, trip)
+
+      cont+= 1
+      @show trip
+   end
+
+   
+   #return Solution(objval, r_aux, edge_solution)
+end
+
 # build Solution from the variables x
 function getsolution(data::DataTSPHS, optimizer::VrpOptimizer, x, objval, app::Dict{String,Any})
    E, dim, H = edges(data), dimension(data), data.H′
@@ -185,7 +262,7 @@ function checksolution(data::DataTSPHS, solution, app)
          (visits[j] == 2 && in(j,data.C′)) && error("Customer $j was visited more than once")
          sum_cost += distance(data, (prev,j))
          in(j,data.C′) ? sum_time += (service(data,j) + distance(data, (prev,j))) : sum_time += distance(data, (prev,j))
-         (sum_time > L) && error("Route is violating the daily time limit. The daily time limit is $(sum_time) and L is $(L)")
+         (sum_time > L +0.001) && error("Route is violating the daily time limit. The daily time limit is $(sum_time) and L is $(L)")
          !in(j,data.C′) ? sum_time = 0 : nothing
          prev = j
       end
