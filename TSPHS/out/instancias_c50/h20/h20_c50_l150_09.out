@@ -1,0 +1,13 @@
+Application parameters:
+  fixedtrip  =>  false
+  batch  =>  nothing
+  instance  =>  "/IN/h20_c50_l150_09.txt"
+  cfg  =>  "/BWTSP/src/../config/TSPHS.cfg"
+  out  =>  nothing
+  ub  =>  1.0e7
+  sol  =>  nothing
+  round  =>  0
+  Qvalue  =>  999
+  tikz  =>  nothing
+  qvalue  =>  7
+  nosolve  =>  false
