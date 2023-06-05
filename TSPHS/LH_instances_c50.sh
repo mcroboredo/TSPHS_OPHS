@@ -80,5 +80,5 @@
 ./VRPSolver data/instancias_c50/h20_c50_l200_07.txt -q 6 > out/instancias_c50/h20_c50_l200_07.out
 ./VRPSolver data/instancias_c50/h20_c50_l200_08.txt -q 6 > out/instancias_c50/h20_c50_l200_08.out
 ./VRPSolver data/instancias_c50/h20_c50_l200_09.txt -q 6 > out/instancias_c50/h20_c50_l200_09.out
-./VRPSolver data/instancias_c50/h20_c50_l200_10.txt -q 5  out/instancias_c50/h20_c50_l200_10.out
+./VRPSolver data/instancias_c50/h20_c50_l200_10.txt -q 5 > out/instancias_c50/h20_c50_l200_10.out
 
