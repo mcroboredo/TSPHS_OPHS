@@ -1,4 +1,34 @@
 # using SimpleWeightedGraphs
+include("extra/concorde_tsp.jl")
+include("extra/factorials.jl")
+include("extra/permutations.jl")
+
+
+
+function matrix_tsp(data,S)
+   ed(i,j) = i < j ? (i,j) : (j,i)
+   matrix = zeros(Float64,length(S)+1,length(S)+1)
+
+   for i=1:length(S)
+      matrix[1,i+1] = 1000000.0
+      for h in data.H′
+         if c(data,(h,S[i])) < matrix[1,i+1]
+            matrix[1,i+1] = c(data,ed(h,S[i]))
+         end
+      end
+      matrix[i+1,1] = matrix[1,i+1]
+   end
+
+   for i=1:length(S)-1
+      for j=i+1:length(S)
+         matrix[i+1,j+1] = c(data,ed(S[i],S[j]))
+         matrix[j+1,i+1] = matrix[i+1,j+1]
+      end
+   end
+
+   return matrix
+end
+
 function dist_elementarity(data,(i,j))
    n = dimension(data) # number of vertices
    H = data.H′ # Set of hotels
@@ -200,7 +230,61 @@ function build_model(data::DataTSPHS, app::Dict{String,Any}, q::Int)
       end
       length(added_cuts) > 0 && printstyled(">>>>> Add min cuts : $(length(added_cuts)) cut(s) added\n", color=:yellow)
    end
+
+   function two_path_callback()
+
+      x_value = Dict()
+
+      for (i,j) in E′
+         e = (i,j)
+         x_value[(i,j)] = get_value(tsphs.optimizer, x[e])
+      end
+
+      Sizes = [4]
+      @show C
+      for size in Sizes
+         T = collect(permutations(C,size))
+
+         for S in T
+            set1 = [i for i=1:n if i in S]
+            set2 = [i for i=1:n if !(i in S)]
+            sum_ = sum(x_value[ed(i,j)] for i in set1 for j in set2)
+            if sum_ < 4 - 0.001
+               #print("The following subset of customers is candidate to generate a cut S = ")
+               #println(S)
+               cost_matrix_tsp = matrix_tsp(data,S)
+
+               #@show cost_matrix_tsp
+
+               cost_, tour = concorde_st(length(S)+1,cost_matrix_tsp)
+
+               #checking if we have a violated cost
+               if cost_ > data.Lim + 0.001
+                  print("A violated cut was generated for the following subset of customers: S = ")
+                  println(S)
+                  set1 = [i for i=1:n if i in S]
+                  set2 = [i for i=1:n if !(i in S)]
+                  add_dynamic_constr!(tsphs.optimizer, [x[ed(i,j)] for i in set1 for j in set2], [1.0 for i in set1 for j in set2], >=, 4.0, "twopath")
+               end
+               #@show cost_, tour
+            end
+            
+
+         end
+
+      end
+
+      
+
+      println("oi")
+      
+
+      sleep(10000)
+
+      
+   end
    add_cut_callback!(tsphs, maxflow_mincut_callback, "mincut")
+   add_cut_callback!(tsphs, two_path_callback, "twopath")
 
    return (tsphs, x)
 end

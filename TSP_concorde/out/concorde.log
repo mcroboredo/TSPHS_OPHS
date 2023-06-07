@@ -1,0 +1,21 @@
+Default Edge Length: 609284
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 529491
+   0 Steps   Best: 527785   0.00 seconds
+   1 Steps   Best: 527542   0.00 seconds
+  26 Total Steps.
+Best cycle length: 527542
+Lin-Kernighan Running Time: 0.00
+LK Initial Run: 527542.0
+LK Run 0: 527542.0
+LK Run from best tour: 527542.0
+Time to find compression tour: 0.02 (seconds)
+Set initial upperbound to 527542 (from tour)
+Exact lower bound: 527542.000000
+DIFF: 0.000000
+Established Bound: 527542
+Optimal tour: 527542
+Total Time to solve TSP: 0.02
