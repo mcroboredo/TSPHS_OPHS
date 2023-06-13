@@ -37,6 +37,7 @@ mutable struct statistics
    BestInc::Float64
    last_time::Float64
    total_time::Float64
+   attempts::Array{Int64}
 end
 
 function parse_commandline(args_array::Array{String,1}, appfolder::String)
@@ -81,6 +82,70 @@ function parse_commandline(args_array::Array{String,1}, appfolder::String)
    return parse_args(args_array, s)
 end
 
+function getconf(time_limit, accumulated_time, maxNodes)
+   appfolder = dirname(@__FILE__)
+   path_config = string(appfolder, "/../config/TSPHS.cfg")
+   path_config_copy = string(appfolder, "/../config/TSPHS_copy.cfg")
+
+   rm(path_config_copy, force = true)
+   cp(path_config, path_config_copy)
+   #sleep(10)
+   
+   lines = readlines(path_config_copy)
+   
+   open(path_config_copy, "w") do f
+      for line in lines
+         
+         if startswith(line, "GlobalTimeLimit")
+            new_limit = string(floor(Int, (time_limit - accumulated_time) + 0.5))
+            println(f, replace(line, "18000" => new_limit, count = 1))
+         else
+            println(f, line)
+         end
+      end
+      if maxNodes == true
+         println(f, "MaxNbOfBBtreeNodeTreated = 1")
+      end
+   end
+
+   return path_config_copy
+end
+
+function getstatistics(instance_name, q_lb, q, solution_found, accumulated_time, time_limit, rootDB, rootTime,nodes,bestDB,bestINT,last_time,attempts,ub)
+   stat = statistics("",0,0,"",0.0,0.0,0.0,0,0.0,0.0,0.0,0.0,[])
+
+   stat.name = instance_name
+   stat.lb_trip = q_lb
+   stat.opt_trip = q
+   if solution_found
+      if accumulated_time > time_limit
+         stat.status = "NOT_FIXED_FEAS_TL"
+      else
+         stat.status = "NOT_FIXED_OPT"
+      end
+   else
+      if accumulated_time > time_limit
+         stat.status = "NOT_FIXED_INF_TL"
+      else
+         stat.status = "NOT_FIXED_INF"
+      end
+   end
+   #optimizer.stats[:bcRecRootDb], optimizer.stats[:bcTimeRootEval],optimizer.stats[:bcCountNodeProc],optimizer.stats[:bcRecBestDb],optimizer.stats[:bcRecBestInc]
+   #rootDB, rootTime,nodes,bestDB,bestINT
+   stat.cutoff = ub
+   stat.root_bound = rootDB
+   stat.root_time = rootTime
+   stat.nodes = nodes
+   stat.BestDb = bestDB
+   stat.BestInc = bestINT
+   stat.last_time = last_time
+   stat.total_time = accumulated_time
+   stat.attempts = attempts
+
+   return stat
+end
+
+
 function run_TSPHS(app::Dict{String,Any})
    println("Application parameters:")
    for (arg,val) in app
@@ -101,7 +166,7 @@ function run_TSPHS(app::Dict{String,Any})
    solution_found = false
 
    
-   stat = statistics("",0,0,"",0.0,0.0,0.0,0,0.0,0.0,0.0,0.0)
+   
    if !app["nosolve"]
 
       pos = 0
@@ -125,52 +190,47 @@ function run_TSPHS(app::Dict{String,Any})
       end
       
       #----------------
+      continue_ = true
       accumulated_time = last_time = 0.0
-      feasible = false
+      ub = 10000000.0
       q = app["qvalue"] #minimum number of trips
-
       time_limit_aux = time_limit
-
-      while feasible == false && accumulated_time <= time_limit
+      n_attempts = 6
+      Δ = 1.01743287511
+      δ = 0.01547247745
+      attempts = []
+      stat = statistics("",0,0,"",0.0,0.0,0.0,0,0.0,0.0,0.0,0.0,[])
+      while continue_
          (model, x) = build_model(data, app, q)
          appfolder = dirname(@__FILE__)
          
-         path_config = string(appfolder, "/../config/TSPHS.cfg")
-         path_config_copy = string(appfolder, "/../config/TSPHS_copy.cfg")
-
-         rm(path_config_copy, force = true)
-         cp(path_config, path_config_copy)
-         #sleep(10)
-         
-         lines = readlines(path_config_copy)
-         
-         open(path_config_copy, "w") do f
-            for line in lines
-               
-               if startswith(line, "GlobalTimeLimit")
-                  new_limit = string(floor(Int, (time_limit - accumulated_time) + 0.5))
-                  println(f, replace(line, "18000" => new_limit, count = 1))
-               else
-                  println(f, line)
-               end
-            end
-         end
-         
+         #--------- Root node --------------
+         maxNodes = true
+         path_config_copy = getconf(time_limit,accumulated_time,maxNodes)
          optimizer = VrpOptimizer(model, path_config_copy, instance_name)
-         if app["fixedtrip"]
+         #if app["fixedtrip"]
             #The initial upper bound only can be used if the number of trips is fixed
-            set_cutoff!(optimizer, app["ub"]+0.1)
-         end
+            #set_cutoff!(optimizer, app["ub"]+0.1)
+         #end
          (status, solution_found) = optimize!(optimizer)
          rm(path_config_copy, force = true)
          accumulated_time += optimizer.stats[:bcTimeMain] / 100
          time_limit_aux -= optimizer.stats[:bcTimeMain] / 100
-         
-         if solution_found
-            feasible = true
-            sol = getsolution(data, optimizer, x, get_objective_value(optimizer), app)
+         if solution_found || accumulated_time >= time_limit
+            if solution_found
+               println("The solution was found during the root node")
+               sol = getsolution(data, optimizer, x, get_objective_value(optimizer), app)
+            else
+               println("The TL was reached after root node")
+            end
+            break
          end
-
+         println("end of the root node ", q, " ", optimizer.stats[:bcRecRootDb])
+         #sleep(10)
+         lb = optimizer.stats[:bcRecRootDb]
+         #ub = (Δ+δ)*optimizer.stats[:bcRecRootDb]
+         #----------- End root node -------
+         #=
          if app["fixedtrip"]
             last_time = optimizer.stats[:bcTimeMain] / 100
 
@@ -200,7 +260,87 @@ function run_TSPHS(app::Dict{String,Any})
             stat.total_time = accumulated_time
             break
          end
+         =#
 
+         #------------------------
+         if optimizer.stats[:bcRecRootDb] < 10000000.0
+            for i=1:n_attempts
+               if accumulated_time < time_limit
+                  maxNodes = false
+                  path_config_copy = getconf(time_limit,accumulated_time,maxNodes)
+                  optimizer = VrpOptimizer(model, path_config_copy, instance_name)
+                  ub = lb*(Δ+i*δ)
+                  set_cutoff!(optimizer, ub)
+                  (status, solution_found) = optimize!(optimizer)
+                  rm(path_config_copy, force = true)
+                  accumulated_time += optimizer.stats[:bcTimeMain] / 100
+                  time_limit_aux -= optimizer.stats[:bcTimeMain] / 100
+                  if solution_found || accumulated_time >= time_limit
+                     push!(attempts,i)
+                     last_time = optimizer.stats[:bcTimeMain] / 100
+                     
+                     stat = getstatistics(instance_name, app["qvalue"], q, solution_found, accumulated_time, time_limit, optimizer.stats[:bcRecRootDb], optimizer.stats[:bcTimeRootEval],optimizer.stats[:bcCountNodeProc],optimizer.stats[:bcRecBestDb],optimizer.stats[:bcRecBestInc],last_time,attempts,ub)
+                     
+                     if solution_found
+                        println("The solution was found during the attempt ", i)
+                        sol = getsolution(data, optimizer, x, get_objective_value(optimizer), app)
+                     else
+                        println("The TL was reached after attempt ", i)
+                     end
+                     continue_ = false
+                     break
+                  end
+                  println("end of the attempt ", i, " ", q, " ", ub)
+                  #sleep(10)
+                  
+               end
+            end
+            #---------------------------
+
+            if continue_ == false
+               break
+            end
+
+            #----- Running without upper bound -----
+            maxNodes = false
+            path_config_copy = getconf(time_limit,accumulated_time,maxNodes)
+            optimizer = VrpOptimizer(model, path_config_copy, instance_name)
+            #set_cutoff!(optimizer, ub)
+            (status, solution_found) = optimize!(optimizer)
+            rm(path_config_copy, force = true)
+            accumulated_time += optimizer.stats[:bcTimeMain] / 100
+            time_limit_aux -= optimizer.stats[:bcTimeMain] / 100
+
+            if solution_found || accumulated_time >= time_limit
+               ub = 10000000000.0
+               stat = getstatistics(instance_name, app["qvalue"], q, solution_found, accumulated_time, time_limit, optimizer.stats[:bcRecRootDb], optimizer.stats[:bcTimeRootEval],optimizer.stats[:bcCountNodeProc],optimizer.stats[:bcRecBestDb],optimizer.stats[:bcRecBestInc],last_time,attempts, ub)
+               if solution_found
+                  println("The solution was found without upper bound")
+                  sol = getsolution(data, optimizer, x, get_objective_value(optimizer), app)
+               else
+                  println("The TL was reached after running without upper bound")
+               end
+               break
+            end
+
+            println("end of running without upper bound ", q)
+            push!(attempts,n_attempts + 1)
+            #sleep(10)
+            #-------------
+         
+         else
+            println("the problem was proved to be infeasible for ", q, " trips during the root node")
+            push!(attempts,0)
+         
+         
+         end
+
+         
+         q = q + 1
+         println("Nem value of q ", q)
+         #sleep(5)
+
+         #=
          if feasible == false && accumulated_time <= time_limit
             q += 1
          else
@@ -231,6 +371,7 @@ function run_TSPHS(app::Dict{String,Any})
             stat.last_time = last_time
             stat.total_time = accumulated_time
          end
+         =#
 
       end
    
@@ -239,7 +380,7 @@ function run_TSPHS(app::Dict{String,Any})
 
    println("######### Customized statistics #########################")
 
-   println("Customized_statistics: ", stat.name, " ", stat.lb_trip, " ",stat.opt_trip, " ",stat.status, " ",stat.cutoff, " ",stat.root_bound, " ",stat.root_time, " ",stat.nodes, " ",stat.BestDb, " ",stat.BestInc, " ",stat.last_time, " ",stat.total_time)
+   println("Customized_statistics: ", stat.name, " ", stat.lb_trip, " ",stat.opt_trip, " ",stat.status, " ",stat.cutoff, " ",stat.root_bound, " ",stat.root_time, " ",stat.nodes, " ",stat.BestDb, " ",stat.BestInc, " ",stat.last_time, " ",stat.total_time, " ", stat.attempts)
    
    println("########################################################")
    println("")

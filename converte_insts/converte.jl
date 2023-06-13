@@ -4,7 +4,7 @@ for pasta in lista_pastas
     for arquivo in lista_arquivos
         caminho_arquivo = "Dados_para_converter/" * pasta  * "/" * arquivo 
         # Read the file and obtain aux
-        file = open(caminho_arquivo, "r")
+        file = open(caminho_arquivo, "r")ued
         dados = read(file, String)
         close(file)
         breaks_in = [' '; ':'; '\n';'\t';'\r']

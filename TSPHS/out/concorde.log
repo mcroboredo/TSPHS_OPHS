@@ -1,25 +1,27 @@
-Default Edge Length: 50265
+Default Edge Length: 50150
 CCtsp_solve_dat ...
 Finding a good tour for compression ...
 linkern ...
 Less than 10 nodes, setting repeatcount to 0
 Setting kick type to close
-Starting Cycle: 50127
-LK Cycle: 50124
-Best cycle length: 50124
+Starting Cycle: 50064
+LK Cycle: 50062
+Best cycle length: 50062
 Lin-Kernighan Running Time: 0.00
-LK Initial Run: 50124.0
+LK Initial Run: 50062.0
 Less than 10 nodes, setting repeatcount to 0
-LK Run 0: 50124.0
+LK Run 0: 50062.0
 Less than 10 nodes, setting repeatcount to 0
-LK Run from best tour: 50124.0
+LK Run from best tour: 50062.0
 Time to find compression tour: 0.00 (seconds)
-Set initial upperbound to 50124 (from tour)
+Set initial upperbound to 50062 (from tour)
 Use entire sparse graph as initial edge set
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1700 [inlined]
+do_call at /buildworker/worker/package_linux64/build/src/interpreter.c:369
 recomputing rownorms ...
 Less than 10 nodes, setting repeatcount to 0
-Exact lower bound: 50124.000000
+Exact lower bound: 50062.000000
 DIFF: 0.000000
-Established Bound: 50124
-Optimal tour: 50124
+Established Bound: 50062
+Optimal tour: 50062
 Total Time to solve TSP: 0.00

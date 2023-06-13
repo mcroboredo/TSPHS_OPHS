@@ -284,7 +284,7 @@ function build_model(data::DataTSPHS, app::Dict{String,Any}, q::Int)
       
    end
    add_cut_callback!(tsphs, maxflow_mincut_callback, "mincut")
-   add_cut_callback!(tsphs, two_path_callback, "twopath")
+   #add_cut_callback!(tsphs, two_path_callback, "twopath")
 
    return (tsphs, x)
 end
