@@ -1,5 +1,0 @@
-trip 1 : 3 31 59 87 38 33 50 47 7 18 75 45 104 52 56 82 34 43 89 72 77 68 44 58 6 86 2
-trip 2 : 4 98 22 28 42 40 88 14 76 25 78 63 19 21 15 36 49 102 27 81 66 39 90 24 61 55 91 13 11 16 3
-trip 3 : 1 5 32 97 62 71 12 46 93 35 84 60 101 79 23 8 69 70 74 26 20 57 83 92 4
-tour :1 tour :5 tour :32 tour :97 tour :62 tour :71 tour :12 tour :46 tour :93 tour :35 tour :84 tour :60 tour :101 tour :79 tour :23 tour :8 tour :69 tour :70 tour :74 tour :26 tour :20 tour :57 tour :83 tour :92 tour :4 tour :98 tour :22 tour :28 tour :42 tour :40 tour :88 tour :14 tour :76 tour :25 tour :78 tour :63 tour :19 tour :21 tour :15 tour :36 tour :49 tour :102 tour :27 tour :81 tour :66 tour :39 tour :90 tour :24 tour :61 tour :55 tour :91 tour :13 tour :11 tour :16 tour :3 tour :31 tour :59 tour :87 tour :38 tour :33 tour :50 tour :47 tour :7 tour :18 tour :75 tour :45 tour :104 tour :52 tour :56 tour :82 tour :34 tour :43 tour :89 tour :72 tour :77 tour :68 tour :44 tour :58 tour :6 tour :86 tour :2
-Cost : 4630.0

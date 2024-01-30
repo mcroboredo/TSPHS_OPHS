@@ -1,4 +1,0 @@
-trip 1 : 1 30 31 19 18 17 16 6 7 8 9 5 4 15 11 3
-trip 2 : 3 10 12 13 14 23 24 25 26 27 32 33 28 29 22 21 2
-tour :1 tour :30 tour :31 tour :19 tour :18 tour :17 tour :16 tour :6 tour :7 tour :8 tour :9 tour :5 tour :4 tour :15 tour :11 tour :3 tour :10 tour :12 tour :13 tour :14 tour :23 tour :24 tour :25 tour :26 tour :27 tour :32 tour :33 tour :28 tour :29 tour :22 tour :21 tour :2
-Cost : 280.0
